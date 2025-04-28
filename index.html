@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casita Bakery</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="menu__side">
+        <div class="name__page">
+            <h4>Casita Bakery</h4>
+        </div>
+
+        <div class="options__menu">
+            <a href="index.html" id="">Inicio</a>
+
+            <a href="Reservas.html" id="">Reservas</a>
+
+        </div>
+    </div>
+
+
+    <main class="Contenido-principal">
+        <div class="formulario-pedido">
+            <h2>Formulario de Pedido</h2>
+            <form class="formulario" id="pedidoForm">
+                <label for="nombre">Nombre del Cliente:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="producto">Producto:</label>
+                <select id="producto" name="producto" required>
+                    <option value="">-- Selecciona un producto --</option>
+                    <option value="Brownies">Brownies</option>
+                    <option value="Galletas">Galletas</option>
+                    <option value="Cheesecake">Cheesecake</option>
+                    <option value="Cinnamon Rolls">Cinnamon Rolls</option>
+                </select>
+
+                <button type="button" onclick="agregarProducto()">Agregar Producto</button>
+
+                <div id="listaProductos">
+                    <h3>Productos Seleccionados:</h3>
+                    <ul id="productosSeleccionados"></ul>
+                </div>
+
+                <label for="fecha">Fecha del Pedido:</label>
+                <input type="date" id="fecha" name="fecha" required>
+
+                <button type="submit">Guardar Pedido</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,253 @@
+/* GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+/* VARIABLES */
+:root {
+    --blanco: #f0f0f0;
+    --fondo: #FDEAF2;
+    --gris: #cbd6e2;
+    --chocolate: #4D312E;
+    --chocolate-claro: #B38877;
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: var(--fondo);
+    display: flex;
+    min-height: 100vh;
+}
+
+/*- MENU -*/
+
+.menu__side{
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    width: 90%;
+    background-color: var(--chocolate);
+    border-radius: 0 30px 30px 0;
+}
+
+
+.name__page{
+    margin-top: 20px;
+    padding: 20px;
+    color: var(--blanco);
+    font-size: 30px;
+    text-align: center;
+}
+
+.options__menu{
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.options__menu a{
+    margin-top: 20px;
+    padding: 20px;
+    color: var(--blanco);
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.options__menu a:hover{
+    background-color: var(--chocolate-claro);
+    transition: 1s;
+}
+
+/*- FORMULARIO -*/
+
+.Contenido-principal {
+    flex: 1; /* Ocupa todo el espacio disponible al lado del menú */
+    display: flex;
+    justify-content: center; /* Centra HORIZONTALMENTE */
+    align-items: center;     /* Centra VERTICALMENTE */
+    padding: 20px;
+}
+
+
+.formulario-pedido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--blanco);
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(77, 49, 46, 0.25);
+    max-width: 800px;
+    width: 90%;
+}
+
+.formulario-pedido h2{
+    color: var(--chocolate);
+    font-size: 25px;
+
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 90%;
+    gap: 20px; /* Espacio entre elementos */
+    font-size: 18px;
+}
+
+/* Inputs y Selects */
+.formulario input,
+.formulario select {
+    width: 100%;
+    padding: 12px 15px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid var(--gris);
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #fff;
+}
+
+/* Botones */
+.formulario button {
+    background-color: var(--chocolate);
+    color: var(--blanco);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.formulario button:hover {
+    background-color: var(--chocolate-claro);
+}
+
+/* Productos seleccionados */
+#listaProductos {
+    width: 100%;
+}
+
+#listaProductos ul {
+    list-style: disc inside;
+    margin-top: 10px;
+}
+
+#listaProductos h3 {
+    margin-top: 20px;
+    font-size: 20px;
+    color: var(--chocolate);
+}
+
+/* RESPONSIVE DESIGN */
+
+/* Tablets */
+/* Tablets */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    .menu__side {
+        flex-direction: row;
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        border-radius: 0;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 0;
+        position: relative;
+    }
+
+    .name__page {
+        margin: 0;
+        padding: 10px;
+        font-size: 24px;
+    }
+
+    .options__menu {
+        flex-direction: row;
+        margin-top: 0;
+    }
+
+    .options__menu a {
+        margin: 0 10px;
+        padding: 10px 15px;
+        font-size: 16px;
+    }
+
+    .Contenido-principal {
+        padding: 10px;
+    }
+
+    .formulario-pedido {
+        padding: 20px;
+    }
+
+    .formulario {
+        padding: 10px;
+        gap: 15px;
+    }
+}
+
+/* Celulares */
+@media (max-width: 480px) {
+    /* Menú se coloca en la parte superior */
+    .menu__side {
+        flex-direction: row; /* Horizontal */
+        position: sticky; /* Fija el menú al top */
+        top: 0; /* Lo coloca al principio de la pantalla */
+        width: 100%; /* Asegura que ocupe todo el ancho */
+        z-index: 1000; /* Para que esté encima del contenido */
+    }
+
+    .name__page {
+        font-size: 20px;
+    }
+
+    .options__menu {
+        flex-direction: row;
+        justify-content: center; /* Centra los links */
+        width: 100%;
+    }
+
+    .options__menu a {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+
+    .formulario-pedido h2 {
+        font-size: 20px;
+    }
+
+    .formulario input,
+    .formulario select {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .formulario button {
+        padding: 10px 15px;
+        font-size: 16px;
+    }
+
+    #listaProductos h3 {
+        font-size: 18px;
+    }
+
+    /* Para asegurar que el contenido no se superponga con el menú */
+    .Contenido-principal {
+        padding-top: 70px; /* Para dar espacio debajo del menú */
+    }
+}
+
+
