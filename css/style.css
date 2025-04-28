@@ -26,7 +26,7 @@ body {
 
 /*- MENU -*/
 
-.menu__side{
+.menu__side {
     display: flex;
     flex-direction: column;
     max-width: 300px;
@@ -35,8 +35,7 @@ body {
     border-radius: 0 30px 30px 0;
 }
 
-
-.name__page{
+.name__page {
     margin-top: 20px;
     padding: 20px;
     color: var(--blanco);
@@ -44,13 +43,13 @@ body {
     text-align: center;
 }
 
-.options__menu{
+.options__menu {
     display: flex;
     flex-direction: column;
     margin-top: 40px;
 }
 
-.options__menu a{
+.options__menu a {
     margin-top: 20px;
     padding: 20px;
     color: var(--blanco);
@@ -58,7 +57,7 @@ body {
     text-decoration: none;
 }
 
-.options__menu a:hover{
+.options__menu a:hover {
     background-color: var(--chocolate-claro);
     transition: 1s;
 }
@@ -73,7 +72,6 @@ body {
     padding: 20px;
 }
 
-
 .formulario-pedido {
     display: flex;
     flex-direction: column;
@@ -87,10 +85,9 @@ body {
     width: 90%;
 }
 
-.formulario-pedido h2{
+.formulario-pedido h2 {
     color: var(--chocolate);
     font-size: 25px;
-
 }
 
 .formulario {
@@ -113,6 +110,45 @@ body {
     border-radius: 8px;
     font-size: 16px;
     background-color: #fff;
+}
+
+/* Opciones de cantidad */
+#opcionesCantidad {
+    margin-top: 20px;
+    background-color: var(--blanco);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(77, 49, 46, 0.25);
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#opcionesCantidad p {
+    color: var(--chocolate);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#opcionesCheckboxes label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    color: var(--chocolate);
+    cursor: pointer;
+}
+
+#opcionesCheckboxes input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* Estilo para mostrar las opciones cuando sean visibles */
+#opcionesCantidad.show {
+    display: flex;
 }
 
 /* Botones */
@@ -149,7 +185,6 @@ body {
 
 /* RESPONSIVE DESIGN */
 
-/* Tablets */
 /* Tablets */
 @media (max-width: 768px) {
     body {
@@ -196,6 +231,25 @@ body {
     .formulario {
         padding: 10px;
         gap: 15px;
+    }
+
+    /* Cambios en las opciones de cantidad */
+    #opcionesCantidad {
+        width: 100%;
+        padding: 15px;
+    }
+
+    #opcionesCantidad p {
+        font-size: 18px;
+    }
+
+    #opcionesCheckboxes label {
+        font-size: 16px;
+    }
+
+    #opcionesCheckboxes input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
     }
 }
 
@@ -248,6 +302,23 @@ body {
     .Contenido-principal {
         padding-top: 70px; /* Para dar espacio debajo del menú */
     }
+
+    /* Cambios en las opciones de cantidad */
+    #opcionesCantidad {
+        width: 100%;
+        padding: 12px;
+    }
+
+    #opcionesCantidad p {
+        font-size: 16px;
+    }
+
+    #opcionesCheckboxes label {
+        font-size: 14px;
+    }
+
+    #opcionesCheckboxes input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+    }
 }
-
-
