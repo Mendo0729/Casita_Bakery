@@ -1,3 +1,15 @@
+function mostrarMensaje(texto, tipo = 'exito') {
+    const mensaje = document.getElementById('mensaje');
+    mensaje.textContent = texto;
+    mensaje.className = `tarjeta-mensaje ${tipo}`;
+    mensaje.classList.remove('oculto');
+
+    // Ocultar automáticamente después de 3 segundos
+    setTimeout(() => {
+        mensaje.classList.add('oculto');
+    }, 3000);
+}
+
 const productosSeleccionados = [];
 
 document.getElementById('producto').addEventListener('change', mostrarOpciones);
@@ -54,12 +66,14 @@ function agregarProducto() {
     });
 
     if (!producto) {
-        alert('Por favor selecciona un producto.');
+        mostrarMensaje('Seleccione un producto', 'error');
+
         return;
     }
 
     if (!tipoSeleccionado) {
-        alert('Por favor selecciona el tipo de pedido.');
+        mostrarMensaje('Seleccione el tipo de pedido', 'error');
+
         return;
     }
 
@@ -103,6 +117,8 @@ function eliminarProducto(index) {
 }
 
 
+
+
 const URL_SHEET = 'https://script.google.com/macros/s/AKfycbxjYMh2K0G9e7fDRaup5i1kUhwcMxzEKj4lv_7Pqgira6GlTcqIyJCz7oPVhInB3rBM/exec'; // tu URL
 
 document.getElementById('pedidoForm').addEventListener('submit', function(e) {
@@ -112,7 +128,7 @@ document.getElementById('pedidoForm').addEventListener('submit', function(e) {
     const fecha = document.getElementById('fecha').value;
 
     if (nombre === '' || productosSeleccionados.length === 0 || fecha === '') {
-        alert('Por favor completa todos los campos y agrega al menos un producto.');
+        mostrarMensaje('Por favor completa todos los campos y agrega al menos un producto.', 'error');
         return;
     }
 
@@ -140,7 +156,7 @@ document.getElementById('pedidoForm').addEventListener('submit', function(e) {
     })
     .then(() => {
         console.log('Pedido enviado.');
-        alert('Pedido guardado exitosamente en Google Sheets.');
+        mostrarMensaje('Pedido guardado exitosamente en Google Sheets.', 'exito');
         this.reset();
         productosSeleccionados.length = 0;
         actualizarLista();
@@ -148,7 +164,7 @@ document.getElementById('pedidoForm').addEventListener('submit', function(e) {
     })
     .catch(error => {
         console.error('Error:', error);
-        alert('Hubo un error al guardar el pedido.');
+        mostrarMensaje('Error al guardar el Pedido', 'error');
     });
 });
 

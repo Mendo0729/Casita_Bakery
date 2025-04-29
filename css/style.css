@@ -183,6 +183,39 @@ body {
     color: var(--chocolate);
 }
 
+.tarjeta-mensaje {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border: 2px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    font-size: 16px;
+    text-align: center;
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+}
+
+.tarjeta-mensaje.exito {
+    border-color: #28a745;
+    color: #28a745;
+    background-color: #e6f9ee;
+}
+
+.tarjeta-mensaje.error {
+    border-color: #dc3545;
+    color: #dc3545;
+    background-color: #fdecea;
+}
+
+.oculto {
+    display: none;
+}
+
 /* RESPONSIVE DESIGN */
 
 /* Tablets */
