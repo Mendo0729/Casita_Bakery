@@ -65,10 +65,10 @@ body {
 /*- FORMULARIO -*/
 
 .Contenido-principal {
-    flex: 1; /* Ocupa todo el espacio disponible al lado del menú */
+    flex: 1;
     display: flex;
-    justify-content: center; /* Centra HORIZONTALMENTE */
-    align-items: center;     /* Centra VERTICALMENTE */
+    flex-direction: column; /* Acomoda verticalmente */
+    align-items: center;
     padding: 20px;
 }
 
@@ -216,7 +216,75 @@ body {
     display: none;
 }
 
+/* Tabla de Pedidos */
+.tabla-pedidos {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--blanco);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(77, 49, 46, 0.25);
+    max-width: 1000px;
+    width: 90%;
+}
+
+.tabla-pedidos h2 {
+    color: var(--chocolate);
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+#tablaPedidos {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+}
+
+#tablaPedidos th, #tablaPedidos td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--gris);
+    font-size: 18px;
+}
+
+#tablaPedidos th {
+    background-color: var(--chocolate);
+    color: var(--blanco);
+}
+
+#tablaPedidos tr:nth-child(even) {
+    background-color: var(--gris);
+}
+
+#tablaPedidos tr:hover {
+    background-color: var(--chocolate-claro);
+    transition: background-color 0.3s ease;
+}
+
+/* Estilo para filas de estado */
+#tablaPedidos td.estado {
+    font-weight: bold;
+    color: var(--chocolate);
+}
+
+#tablaPedidos td.estado.pending {
+    color: #ffcc00;
+}
+
+#tablaPedidos td.estado.completed {
+    color: #28a745;
+}
+
+#tablaPedidos td.estado.cancelled {
+    color: #dc3545;
+}
+
 /* RESPONSIVE DESIGN */
+
+
 
 /* Tablets */
 @media (max-width: 768px) {

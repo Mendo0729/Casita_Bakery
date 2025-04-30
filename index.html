@@ -17,7 +17,9 @@
         </div>
 
         <div class="options__menu">
-            <a href="index.html" id="">Inicio</a>
+            <a href="#Inicio" id="">Inicio</a>
+
+            <a href="#Pedidos" id="">Pedidos</a>
 
 
         </div>
@@ -25,7 +27,7 @@
 
 
     <main class="Contenido-principal">
-        <div class="formulario-pedido">
+        <div class="formulario-pedido" id="Inicio">
             <h2>Formulario de Pedido</h2>
             <form class="formulario" id="pedidoForm">
                 <label for="nombre">Nombre del Cliente:</label>
@@ -60,11 +62,32 @@
                 <button type="submit">Guardar Pedido</button>
             </form>
         </div>
+
+        <!-- Tabla de Pedidos -->
+        <div class="tabla-pedidos" id="Pedidos">
+            <h2>Pedidos Realizados</h2>
+            <table id="tablaPedidos">
+                <thead>
+                    <tr>
+                        <th>Fecha de Registro</th>
+                        <th>Nombre</th>
+                        <th>Pedido</th>
+                        <th>Fecha de Entrega</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aquí se agregarán las filas de pedidos -->
+                </tbody>
+            </table>
+        </div>
+
     </main>
 
     <div id="mensaje" class="tarjeta-mensaje oculto"></div>
 
     <script src="js/app.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
 

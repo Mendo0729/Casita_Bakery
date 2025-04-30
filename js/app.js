@@ -102,7 +102,7 @@ function actualizarLista() {
         botonEliminar.style.color = '#ff5555';
         botonEliminar.style.fontSize = '18px';
 
-        botonEliminar.onclick = function() {
+        botonEliminar.onclick = function () {
             eliminarProducto(index);
         };
 
@@ -119,33 +119,40 @@ function eliminarProducto(index) {
 
 
 
-const URL_SHEET = 'https://script.google.com/macros/s/AKfycbxjYMh2K0G9e7fDRaup5i1kUhwcMxzEKj4lv_7Pqgira6GlTcqIyJCz7oPVhInB3rBM/exec'; // tu URL
+const URL_SHEET = 'https://script.google.com/macros/s/AKfycbySDwcuoIATzdKv91IoKWogxGDkX4ZUTyIlkSW7tnGGccEmsfyHYospTcOU-695eBmv/exec'; // tu URL
 
-document.getElementById('pedidoForm').addEventListener('submit', function(e) {
+
+document.getElementById('pedidoForm').addEventListener('submit', function (e) {
     e.preventDefault();
-    
+
     const nombre = document.getElementById('nombre').value.trim();
     const fecha = document.getElementById('fecha').value;
 
+    // Verificar que todos los campos estén completos
     if (nombre === '' || productosSeleccionados.length === 0 || fecha === '') {
         mostrarMensaje('Por favor completa todos los campos y agrega al menos un producto.', 'error');
         return;
     }
 
-    // Adaptar para enviar también el tipo de pedido
+    // Formatear los productos seleccionados
     const productosFormateados = productosSeleccionados.map(prod => `${prod.nombre} (${prod.cantidad})`);
 
+    // Crear el objeto de datos que se enviará a Google Sheets
     const data = {
         nombre: nombre,
         pedido: productosFormateados.join(', '), // Ej: Brownies (Individual), Cheesecake (Completo)
-        fecha: fecha
+        fecha: fecha, // Fecha de entrega
+        estado: 'Pendiente', // Estado inicial
+        timestamp: new Date().toISOString() // Timestamp en formato ISO
     };
 
     console.log('Nombre:', nombre);
     console.log('Productos:', productosFormateados);
     console.log('Fecha:', fecha);
+    console.log('Estado:', 'Pendiente');
+    console.log('Timestamp:', data.timestamp);
 
-    // Enviar a Google Sheets
+    // Enviar los datos a Google Sheets
     fetch(URL_SHEET, {
         method: 'POST',
         mode: 'no-cors',
@@ -154,17 +161,52 @@ document.getElementById('pedidoForm').addEventListener('submit', function(e) {
             'Content-Type': 'application/json'
         }
     })
-    .then(() => {
-        console.log('Pedido enviado.');
-        mostrarMensaje('Pedido guardado exitosamente en Google Sheets.', 'exito');
-        this.reset();
-        productosSeleccionados.length = 0;
-        actualizarLista();
-        document.getElementById('opcionesCantidad').style.display = 'none'; // También ocultar checkboxes
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        mostrarMensaje('Error al guardar el Pedido', 'error');
-    });
+        .then(() => {
+            console.log('Pedido enviado.');
+            mostrarMensaje('Pedido guardado exitosamente en Google Sheets.', 'exito');
+            this.reset();
+            productosSeleccionados.length = 0;
+            actualizarLista();
+            document.getElementById('opcionesCantidad').style.display = 'none'; // También ocultar checkboxes
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            mostrarMensaje('Error al guardar el Pedido', 'error');
+        });
 });
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Cargar los pedidos al cargar la página
+    cargarPedidos();
+});
+
+function cargarPedidos() {
+    fetch(URL_SHEET)
+      .then(response => {
+        if (!response.ok) throw new Error('Error de red: ' + response.statusText);
+        return response.json(); // parseamos como JSON directamente
+      })
+      .then(data => {
+        console.log(data); // para ver si llegan los datos
+        const tbody = document.querySelector('#tablaPedidos tbody');
+        tbody.innerHTML = '';
+        data.forEach(pedido => {
+          const fila = document.createElement('tr');
+          fila.innerHTML = `
+            <td>${pedido.timestamp}</td>
+            <td>${pedido.nombre}</td>
+            <td>${pedido.pedido}</td>
+            <td>${pedido.fecha}</td>
+            <td>${pedido.estado}</td>
+          `;
+          tbody.appendChild(fila);
+        });
+      })
+      .catch(error => {
+        console.error('Error al cargar los pedidos:', error);
+        alert('No se pudieron cargar los pedidos');
+      });
+  }
+
 
