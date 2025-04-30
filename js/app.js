@@ -119,7 +119,7 @@ function eliminarProducto(index) {
 
 
 
-const URL_SHEET = 'https://script.google.com/macros/s/AKfycbySDwcuoIATzdKv91IoKWogxGDkX4ZUTyIlkSW7tnGGccEmsfyHYospTcOU-695eBmv/exec'; // tu URL
+const URL_SHEET = 'https://script.google.com/macros/s/AKfycbz48FBd8r52OCKIb0hB-oVUO3QQD9wpmDvmAIQmIIUEJl8bpEdnK3LswaEgc-vTDE4/exec'; // tu URL
 
 
 document.getElementById('pedidoForm').addEventListener('submit', function (e) {
