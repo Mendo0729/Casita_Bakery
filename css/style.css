@@ -230,6 +230,7 @@ body {
     width: 90%;
 }
 
+/* Título */
 .tabla-pedidos h2 {
     color: var(--chocolate);
     font-size: 25px;
@@ -241,6 +242,9 @@ body {
     border-collapse: collapse;
     margin-top: 20px;
     background-color: #fff;
+    /* Permitir el desplazamiento horizontal en pantallas pequeñas */
+    overflow-x: auto;
+    display: block;
 }
 
 #tablaPedidos th, #tablaPedidos td {
@@ -352,6 +356,27 @@ body {
         width: 18px;
         height: 18px;
     }
+
+    .tabla-pedidos {
+        padding: 20px;
+    }
+
+    #tablaPedidos th, #tablaPedidos td {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    #tablaPedidos {
+        font-size: 14px;
+        /* Aseguramos que la tabla tenga un scroll horizontal */
+        overflow-x: auto;
+        display: block;
+    }
+
+    /* Ajustes de los encabezados */
+    #tablaPedidos th {
+        font-size: 16px;
+    }
 }
 
 /* Celulares */
@@ -421,5 +446,30 @@ body {
     #opcionesCheckboxes input[type="checkbox"] {
         width: 16px;
         height: 16px;
+    }
+
+    .tabla-pedidos {
+        padding: 15px;
+    }
+
+    #tablaPedidos th, #tablaPedidos td {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    #tablaPedidos {
+        font-size: 12px;
+        /* Aseguramos que la tabla sea desplazable horizontalmente en pantallas pequeñas */
+        overflow-x: auto;
+        display: block;
+    }
+
+    /* Ajustar las celdas para que se vean bien en pantallas pequeñas */
+    #tablaPedidos th {
+        font-size: 14px;
+    }
+
+    #tablaPedidos td {
+        font-size: 12px;
     }
 }
