@@ -11,18 +11,7 @@
 
 <body>
 
-    <div class="menu__side">
-        <div class="name__page">
-            <h4>Casita Bakery</h4>
-        </div>
-
-        <div class="options__menu">
-            <a href="#Inicio" id="">Inicio</a>
-
-            <a href="#Pedidos" id="">Pedidos</a>
-
-
-        </div>
+    <div class="menu__side" id="sidebar">
     </div>
 
 
@@ -63,34 +52,23 @@
             </form>
         </div>
 
-        <!-- Tabla de Pedidos -->
-        <div class="tabla-pedidos" id="Pedidos">
-            <h2>Pedidos Realizados</h2>
-            <div class="tabla-wrapper">
-                <table id="tablaPedidos">
-                    <thead>
-                        <tr>
-                            <th>Fecha de Registro</th>
-                            <th>Nombre</th>
-                            <th>Pedido</th>
-                            <th>Fecha de Entrega</th>
-                            <th>Estado</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Aquí se agregarán las filas de pedidos -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        
 
 
     </main>
 
     <div id="mensaje" class="tarjeta-mensaje oculto"></div>
 
-    <script src="js/app.js"></script>
-    <script src="js/script.js"></script>
+    <script>
+        fetch('src/sidebar.html')
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById('sidebar').innerHTML = data;
+          });
+      </script>
+
+    <script src="js/formulario.js"></script>
+    <!--<script src="js/script.js"></script>-->
 
 </body>
 

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casita Bakery - Pedidos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="icon/Logo.png" type="image/x-icon">
+</head>
+<body>
+
+    <div class="menu__side" id="sidebar">
+    </div>
+
+    <main class="Contenido-principal">
+        <!-- Tabla de Pedidos -->
+        <div class="tabla-pedidos" id="Pedidos">
+            <h2>Pedidos Realizados</h2>
+            <!-- Formulario de búsqueda -->
+            <form id="busquedaForm" class="busqueda-form">
+                <input type="text" id="buscarNombre" placeholder="Buscar por nombre">
+                <input type="date" id="buscarFecha">
+                <button type="submit">Buscar</button>
+                <button type="button" id="limpiarBusqueda">Limpiar</button>
+            </form>
+
+            <div class="tabla-wrapper">
+                <table id="tablaPedidos">
+                    <thead>
+                        <tr>
+                            <th>Fecha de Registro</th>
+                            <th>Nombre</th>
+                            <th>Pedido</th>
+                            <th>Fecha de Entrega</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Aquí se agregarán las filas de pedidos -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        fetch('src/sidebar.html')
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById('sidebar').innerHTML = data;
+          });
+    </script>
+
+    <script src="js/pedidos.js"></script>
+</body>
+</html>
