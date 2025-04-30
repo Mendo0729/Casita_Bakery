@@ -237,14 +237,18 @@ body {
     margin-bottom: 20px;
 }
 
+.tabla-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* Elimina esto del table si lo tienes: display: block */
 #tablaPedidos {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
     background-color: #fff;
-    /* Permitir el desplazamiento horizontal en pantallas pequeñas */
-    overflow-x: auto;
-    display: block;
+    min-width: 600px;
 }
 
 #tablaPedidos th, #tablaPedidos td {
@@ -361,20 +365,9 @@ body {
         padding: 20px;
     }
 
-    #tablaPedidos th, #tablaPedidos td {
+    #tablaPedidos th,
+    #tablaPedidos td {
         padding: 10px;
-        font-size: 16px;
-    }
-
-    #tablaPedidos {
-        font-size: 14px;
-        /* Aseguramos que la tabla tenga un scroll horizontal */
-        overflow-x: auto;
-        display: block;
-    }
-
-    /* Ajustes de los encabezados */
-    #tablaPedidos th {
         font-size: 16px;
     }
 }
@@ -452,24 +445,9 @@ body {
         padding: 15px;
     }
 
-    #tablaPedidos th, #tablaPedidos td {
+    #tablaPedidos th,
+    #tablaPedidos td {
         padding: 8px;
         font-size: 14px;
-    }
-
-    #tablaPedidos {
-        font-size: 12px;
-        /* Aseguramos que la tabla sea desplazable horizontalmente en pantallas pequeñas */
-        overflow-x: auto;
-        display: block;
-    }
-
-    /* Ajustar las celdas para que se vean bien en pantallas pequeñas */
-    #tablaPedidos th {
-        font-size: 14px;
-    }
-
-    #tablaPedidos td {
-        font-size: 12px;
     }
 }
