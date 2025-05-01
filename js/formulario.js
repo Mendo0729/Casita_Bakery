@@ -102,7 +102,8 @@ function eliminarProducto(index) {
   actualizarLista();
 }
 
-const URL_SHEET = 'https://script.google.com/macros/s/AKfycbxTJXZgPIrgXpPeq2GxRk-726SBwa8WiHJ_1XPPO43SiEYn-Mv2lC05Rxn7P-024Cw3/exec';
+const URL_SHEET = 'https://script.google.com/macros/s/AKfycbw4vEHSVXKee4IOz1EK03OssFcCaa0KfwUGbZ4GIxBWrWy8utGaWNuvhI84cYjLHg1b/exec';
+
 
 function enviarPedido(e) {
   e.preventDefault();
@@ -122,7 +123,8 @@ function enviarPedido(e) {
       pedido: productosFormateados.join(', '),
       fecha,
       estado: 'Pendiente',
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
+      accion: 'agregar'
   };
 
   fetch(URL_SHEET, {

@@ -1,4 +1,4 @@
-const URL_SHEET = 'https://script.google.com/macros/s/AKfycbxXwvrjdB4LHNZjvppiZ60iVpWPDzHOgkmouvEUqsqnIuxtKgD0mlZoUnzlIF6IR3P9/exec';
+const URL_SHEET = 'https://script.google.com/macros/s/AKfycbw4vEHSVXKee4IOz1EK03OssFcCaa0KfwUGbZ4GIxBWrWy8utGaWNuvhI84cYjLHg1b/exec';
 
 document.addEventListener('DOMContentLoaded', function () {
     const tabla = document.getElementById('tablaPedidos');

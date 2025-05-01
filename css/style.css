@@ -103,20 +103,6 @@ body {
     color: #333;
 }
 
-.charts {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-.chart {
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 48%;
-}
-
 .actions {
     display: flex;
     justify-content: space-around;
@@ -125,7 +111,6 @@ body {
 
 .actions .btn {
     background-color: var(--chocolate);
-    color: #fff;
     padding: 10px 20px;
     border-radius: 8px;
     border: none;
@@ -135,6 +120,11 @@ body {
 
 .actions .btn:hover {
     background-color: var(--chocolate-claro);
+}
+
+.actions .btn a{
+    text-decoration: none;
+    color: var(--blanco);
 }
 
 .recent-orders {
