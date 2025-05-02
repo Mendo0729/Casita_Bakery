@@ -1,7 +1,8 @@
-/* GOOGLE FONTS */
+/*
+
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
-/* VARIABLES */
+
 :root {
     --blanco: #f0f0f0;
     --fondo: #FDEAF2;
@@ -10,7 +11,7 @@
     --chocolate-claro: #B38877;
 }
 
-/* RESET */
+
 * {
     margin: 0;
     padding: 0;
@@ -24,7 +25,7 @@ body {
     min-height: 100vh;
 }
 
-/*- MENU -*/
+
 
 .menu__side {
     display: flex;
@@ -62,7 +63,7 @@ body {
     transition: 1s;
 }
 
-/* DashBoard */
+
 
 .dashboard {
     padding: 20px;
@@ -140,12 +141,12 @@ body {
 }
 
 
-/*- FORMULARIO -*/
+
 
 .Contenido-principal {
     flex: 1;
     display: flex;
-    flex-direction: column; /* Acomoda verticalmente */
+    flex-direction: column; 
     align-items: center;
     padding: 20px;
 }
@@ -173,11 +174,11 @@ body {
     flex-direction: column;
     padding: 20px;
     width: 90%;
-    gap: 20px; /* Espacio entre elementos */
+    gap: 20px; 
     font-size: 18px;
 }
 
-/* Inputs y Selects */
+
 .formulario input,
 .formulario select {
     width: 100%;
@@ -190,7 +191,7 @@ body {
     background-color: #fff;
 }
 
-/* Opciones de cantidad */
+
 #opcionesCantidad {
     margin-top: 20px;
     background-color: var(--blanco);
@@ -224,12 +225,12 @@ body {
     cursor: pointer;
 }
 
-/* Estilo para mostrar las opciones cuando sean visibles */
+
 #opcionesCantidad.show {
     display: flex;
 }
 
-/* Botones */
+
 .formulario button {
     background-color: var(--chocolate);
     color: var(--blanco);
@@ -245,7 +246,7 @@ body {
     background-color: var(--chocolate-claro);
 }
 
-/* Productos seleccionados */
+
 #listaProductos {
     width: 100%;
 }
@@ -294,7 +295,7 @@ body {
     display: none;
 }
 
-/* Tabla de Pedidos */
+
 .tabla-pedidos {
     margin-top: 40px;
     display: flex;
@@ -308,7 +309,7 @@ body {
     width: 90%;
 }
 
-/* Título */
+
 .tabla-pedidos h2 {
     color: var(--chocolate);
     font-size: 25px;
@@ -354,13 +355,13 @@ body {
 .tabla-wrapper {
     width: 100%;
     overflow-x: auto;
-    max-height: 450px; /* ← Altura máxima visible */
+    max-height: 450px; 
     overflow-y: auto;
     border: 1px solid var(--gris);
     border-radius: 8px;
 }
 
-/* Elimina esto del table si lo tienes: display: block */
+
 #tablaPedidos {
     width: 100%;
     border-collapse: collapse;
@@ -390,7 +391,7 @@ body {
     transition: background-color 0.3s ease;
 }
 
-/* Estilo para el selector de estado */
+
 #tablaPedidos td select.estado-select {
     font-size: 16px;
     padding: 8px 12px;
@@ -403,30 +404,30 @@ body {
     transition: background-color 0.3s ease;
 }
 
-/* Cambios de color al pasar el ratón por el selector de estado */
+
 #tablaPedidos td select.estado-select:hover {
     background-color: var(--gris-claro);
 }
 
-/* Estilo para las filas con estado 'Pendiente' */
+
 #tablaPedidos td.estado.pending {
     color: #ffcc00;
     font-weight: bold;
 }
 
-/* Estilo para las filas con estado 'Entregado' */
+
 #tablaPedidos td.estado.completed {
     color: #28a745;
     font-weight: bold;
 }
 
-/* Estilo para las filas con estado 'Cancelado' */
+
 #tablaPedidos td.estado.cancelled {
     color: #dc3545;
     font-weight: bold;
 }
 
-/* Estilo para los botones de Editar y Guardar */
+
 .tabla-pedidos button.editar-btn,
 .tabla-pedidos button.guardar-btn {
     padding: 10px 16px;
@@ -438,7 +439,7 @@ body {
     margin: 5px;
 }
 
-/* Botón de Editar */
+
 .tabla-pedidos button.editar-btn {
     background-color: #007bff;
     color: #fff;
@@ -448,7 +449,7 @@ body {
     background-color: #0056b3;
 }
 
-/* Botón de Guardar */
+
 .tabla-pedidos button.guardar-btn {
     background-color: #28a745;
     color: #fff;
@@ -460,23 +461,23 @@ body {
     opacity: 1;
 }
 
-/* Botón de Guardar deshabilitado */
+
 .tabla-pedidos button.guardar-btn:disabled {
     background-color: #c6c6c6;
     cursor: not-allowed;
 }
 
-/* Botón de Editar deshabilitado */
+
 .tabla-pedidos button.editar-btn:disabled {
     background-color: #c6c6c6;
     cursor: not-allowed;
 }
 
-/* RESPONSIVE DESIGN */
 
 
 
-/* Tablets */
+
+
 @media (max-width: 768px) {
     body {
         flex-direction: column;
@@ -524,7 +525,7 @@ body {
         gap: 15px;
     }
 
-    /* Cambios en las opciones de cantidad */
+
     #opcionesCantidad {
         width: 100%;
         padding: 15px;
@@ -554,15 +555,15 @@ body {
     }
 }
 
-/* Celulares */
+
 @media (max-width: 480px) {
-    /* Menú se coloca en la parte superior */
+
     .menu__side {
-        flex-direction: row; /* Horizontal */
-        position: sticky; /* Fija el menú al top */
-        top: 0; /* Lo coloca al principio de la pantalla */
-        width: 100%; /* Asegura que ocupe todo el ancho */
-        z-index: 1000; /* Para que esté encima del contenido */
+        flex-direction: row;
+        position: sticky;
+        top: 0; 
+        width: 100%; 
+        z-index: 1000; 
     }
 
     .name__page {
@@ -571,7 +572,7 @@ body {
 
     .options__menu {
         flex-direction: row;
-        justify-content: center; /* Centra los links */
+        justify-content: center; 
         width: 100%;
     }
 
@@ -599,12 +600,11 @@ body {
         font-size: 18px;
     }
 
-    /* Para asegurar que el contenido no se superponga con el menú */
     .Contenido-principal {
-        padding-top: 70px; /* Para dar espacio debajo del menú */
+        padding-top: 70px;
     }
 
-    /* Cambios en las opciones de cantidad */
+
     #opcionesCantidad {
         width: 100%;
         padding: 12px;
