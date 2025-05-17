@@ -1,5 +1,4 @@
-
-const URL_SHEET = 'https://script.google.com/macros/s/AKfycbw4vEHSVXKee4IOz1EK03OssFcCaa0KfwUGbZ4GIxBWrWy8utGaWNuvhI84cYjLHg1b/exec';
+const URL_SHEET = 'https://script.google.com/macros/s/AKfycbzNhM_JqQDj8y94UEDKhIFqfTGbpSGkraEUJq1lxZbs9-jD9ABop60oZDzcxDrFSNML/exec';
 
 document.addEventListener("DOMContentLoaded", () => {
     fetchPedidos();
@@ -35,7 +34,7 @@ function fetchPedidos() {
             document.querySelector('.summary .card:nth-child(2) p').textContent = pendientes;
             document.querySelector('.summary .card:nth-child(3) p').textContent = entregados;
 
-            mostrarPedidosRecientes(pedidosRecientes);
+            mostrarPedidosRecientes(data); // pasamos todos los datos
         })
         .catch(error => console.error('Error al cargar los pedidos:', error));
 }
@@ -44,38 +43,35 @@ function mostrarPedidosRecientes(pedidos) {
     const contenedor = document.querySelector('.recent-orders');
     const lista = document.createElement('ul');
 
-    // Limpiar contenido anterior si se vuelve a llamar
     contenedor.innerHTML = '<h3>Pedidos Recientes</h3>';
 
     const hoy = new Date();
-    hoy.setHours(0, 0, 0, 0); // Ignorar hora
+    hoy.setHours(0, 0, 0, 0);
 
     const en7Dias = new Date();
     en7Dias.setDate(hoy.getDate() + 7);
-    en7Dias.setHours(23, 59, 59, 999); // Fin del séptimo día
+    en7Dias.setHours(23, 59, 59, 999);
 
-    // Filtrar pedidos entre hoy y los próximos 7 días
     const pedidosRecientes = pedidos.filter(pedido => {
         const fechaPedido = new Date(pedido.fecha);
-        return fechaPedido >= hoy && fechaPedido <= en7Dias;
+        return !isNaN(fechaPedido) && fechaPedido >= hoy && fechaPedido <= en7Dias;
     });
 
-    // Ordenar por fecha ascendente
     pedidosRecientes.sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
 
-    // Mostrar resultados
     if (pedidosRecientes.length === 0) {
         lista.innerHTML = '<li>No hay pedidos para los próximos 7 días.</li>';
     } else {
         pedidosRecientes.forEach(pedido => {
+            const fecha = new Date(pedido.fecha);
+            const fechaFormateada = `${fecha.getDate().toString().padStart(2, '0')}/${
+                (fecha.getMonth() + 1).toString().padStart(2, '0')}/${fecha.getFullYear()}`;
+
             const li = document.createElement('li');
-            li.textContent = `${pedido.fecha} - ${pedido.nombre} - ${pedido.pedido} - ${pedido.estado}`;
+            li.textContent = `${fechaFormateada} - ${pedido.nombre ?? 'Sin nombre'} - ${pedido.pedido ?? 'Sin pedido'} - ${pedido.estado ?? 'Sin estado'}`;
             lista.appendChild(li);
         });
     }
 
     contenedor.appendChild(lista);
 }
-
-
-
