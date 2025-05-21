@@ -206,27 +206,7 @@ body {
     opacity: 1;
 }
 
-<<<<<<< HEAD
-/* Botón de Eliminar */
-.tabla-pedidos button.eliminar-btn {
-    background-color: #ff0000;
-    color: #fff;
-}
-
-.tabla-pedidos button.eliminar-btn:hover {
-    background-color: #812121;
-}
-
-/* Botón de Guardar deshabilitado */
-.tabla-pedidos button.guardar-btn:disabled {
-    background-color: #c6c6c6;
-    cursor: not-allowed;
-}
-
-/* Botón de Editar deshabilitado */
-=======
 .tabla-pedidos button.guardar-btn:disabled,
->>>>>>> prueba
 .tabla-pedidos button.editar-btn:disabled {
     background-color: #c6c6c6;
     cursor: not-allowed;

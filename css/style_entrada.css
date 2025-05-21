@@ -3,21 +3,12 @@
 
 /* VARIABLES */
 :root {
-<<<<<<< HEAD
-    --blanco: #f0f0f0;
-    --fondo: #FDEAF2;
-    --gris: #cbd6e2;
-    --chocolate: #4D312E;
-    --chocolate-claro: #B38877;
-    --d: #000000;
-=======
     --color-marron-oscuro: #5E2D1E;
     --color-rosa-pastel: #D4777C;
     --color-rosa-claro: #ffd3d5;
     --color-crema: #F8F5F3;
     --color-marron-claro: #B6704F;
     --color-texto: #000000;
->>>>>>> prueba
 }
 
 /* RESET */
