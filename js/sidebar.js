@@ -28,7 +28,9 @@ export function createSidebar() {
     const links = [
         { href: "index.html", text: "Inicio", icon: "img/inicio.png" },
         { href: "entrada_pedido.html", text: "Entrada de Pedidos", icon: "img/entrada.png" },
-        { href: "pedidos.html", text: "Ver Pedidos", icon: "img/pedido.png" }
+        { href: "pedidos.html", text: "Ver Pedidos", icon: "img/pedido.png" },
+        { href: "inventario.html", text: "Inventario", icon: "img/inventario.png"}
+
     ];
 
     // Crear los enlaces

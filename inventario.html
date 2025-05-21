@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casita Bakery - Inventario</title>
+    <link rel="stylesheet" href="css/inventario.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+</head>
+
+<body>
+
+    <div id="sidebar-container"></div>
+
+    <main class="Contenido-principal">
+
+        <div class="tabla-inventario">
+
+            <h2>Inventario de Productos</h2>
+
+            <div class="tabla-wrapper">
+                <table id="tablainventario">
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Cantidad</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Aquí se agregarán las filas de pedidos -->
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        
+    </main>
+
+    <script type="module">
+        import { createSidebar } from './js/sidebar.js';
+
+        const sidebar = createSidebar();
+        document.getElementById("sidebar-container").appendChild(sidebar);
+    </script>
+    <script src="js/inventario.js"></script>
+
+</body>
+
+</html>
