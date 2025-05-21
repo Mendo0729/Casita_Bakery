@@ -1,0 +1,189 @@
+:root {
+    --color-marron-oscuro: #5E2D1E;
+    --color-rosa-pastel: #D4777C;
+    --color-crema: #F8F5F3;
+    --color-marron-claro: #B6704F;
+    --color-texto: #000000;
+}
+
+/* - MENU - */
+.menu__side {
+    width: 350px;
+    height: 100vh;
+    background-color: var(--color-marron-oscuro);
+    border-radius: 0 30px 30px 0;
+    color: var(--color-crema);
+    display: flex;
+    flex-direction: column;
+}
+
+
+.name__page {
+    margin-top: 20px;
+    padding: 20px;
+    color: var(--color-crema);
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.options__menu {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.options__menu a {
+    margin-top: 20px;
+    padding: 20px;
+    color: var(--color-crema);
+    font-size: 18px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-radius: 10px;
+    transition: background-color 0.5s ease;
+}
+
+.options__menu a:hover {
+    background-color: var(--color-rosa-pastel);
+    color: var(--color-crema);
+    transition: 0.5s;
+}
+
+.menu-icon {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+    /* iconos oscuros → visibles */
+}
+
+/* Botón hamburguesa (oculto por defecto) */
+.hamburger-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.hamburger-btn img {
+    width: 30px;
+    height: 30px;
+}
+
+/* ----------------- RESPONSIVE TABLETS ----------------- */
+@media (max-width: 769px) {
+    .menu__side {
+        flex-direction: row;
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        border-radius: 0;
+        justify-content: space-around;
+        align-items: center;
+        padding: 10px 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        background-color: var(--color-marron-oscuro);
+    }
+
+    body {
+        padding-top: 70px;
+    }
+
+    .name__page {
+        margin: 0;
+        padding: 10px;
+        font-size: 20px;
+        color: var(--color-crema);
+    }
+
+    .options__menu {
+        flex-direction: row;
+        margin-top: 0;
+        gap: 10px;
+    }
+
+    .options__menu a {
+        margin: 0 5px;
+        padding: 8px 12px;
+        font-size: 14px;
+        color: var(--color-crema);
+    }
+}
+
+/* ----------------- RESPONSIVE CELULARES ----------------- */
+@media (max-width: 480px) {
+    .menu__side {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 60px;
+        padding: 0 10px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        background-color: var(--color-marron-oscuro);
+        border-radius: 0;
+    }
+
+    #sidebar-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    body {
+        padding-top: 60px;
+        /* espacio para el menú */
+    }
+
+    .name__page {
+        font-size: 18px;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Mostrar botón hamburguesa */
+    .hamburger-btn {
+        display: block;
+    }
+
+    /* Ocultar menú por defecto */
+    .options__menu {
+        display: none;
+        flex-direction: column;
+        background-color: var(--color-marron-oscuro);
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 10px 0;
+        z-index: 999;
+    }
+
+    /* Mostrar menú cuando está activo (clase JS) */
+    .options__menu.active {
+        display: flex;
+    }
+
+    .options__menu a {
+        justify-content: flex-start;
+        font-size: 13px;
+        padding: 6px 20px;
+        margin: 0;
+    }
+
+    .menu-icon {
+        width: 20px;
+        height: 20px;
+    }
+}

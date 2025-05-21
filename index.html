@@ -1,61 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casita Bakery - DashBoard</title>
-    <link rel="stylesheet" href="css/style_index.css">
-    <link rel="icon" href="icon/Logo.png" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Casita Bakery - DashBoard</title>
+  <link rel="stylesheet" href="css/style_index.css" />
+  <link rel="stylesheet" href="css/sidebar.css" />
+  <link rel="icon" href="icon/Logo.png" type="image/x-icon" />
 </head>
+
 <body>
 
-    <div class="menu__side" id="sidebar">
+  <!-- Contenedor para el sidebar (esto ayuda a aplicar estilos responsive específicos si es necesario) -->
+  <div id="sidebar-container"></div>
+
+  <main class="Contenido-principal">
+    <div class="dashboard">
+      <h2>Dashboard de Pedidos</h2>
+
+      <!-- Resumen de actividad -->
+      <div class="summary">
+        <div class="card">
+          <h3>Total de Pedidos</h3>
+          <p></p>
+        </div>
+        <div class="card">
+          <h3>Pedidos Pendientes</h3>
+          <p></p>
+        </div>
+        <div class="card">
+          <h3>Pedidos Entregados</h3>
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Acciones rápidas -->
+      <div class="actions">
+        <button class="btn"><a href="entrada_pedido.html">Crear Nuevo Pedido</a></button>
+        <button class="btn"><a href="pedidos.html">Ver Pedidos Pendientes</a></button>
+      </div>
+
+      <!-- Lista de pedidos recientes -->
+      <div class="recent-orders">
+        <h3>Pedidos Recientes</h3>
+        <!-- Lista de los últimos pedidos -->
+      </div>
     </div>
+  </main>
 
-    <main class="Contenido-principal">
-        <div class="dashboard">
-            <h2>Dashboard de Pedidos</h2>
-          
-            <!-- Resumen de actividad -->
-            <div class="summary">
-              <div class="card">
-                <h3>Total de Pedidos</h3>
-                <p></p>
-              </div>
-              <div class="card">
-                <h3>Pedidos Pendientes</h3>
-                <p></p>
-              </div>
-              <div class="card">
-                <h3>Pedidos Entregados</h3>
-                <p></p>
-              </div>
-            </div>
-          
-            <!-- Acciones rápidas -->
-            <div class="actions">
-              <button class="btn"><a href=entrada_pedido.html>Crear Nuevo Pedido</a></button>
-              <button class="btn"><a href=pedidos.html>Ver Pedidos Pendientes</a></button>
-            </div>
-          
-            <!-- Lista de pedidos recientes -->
-            <div class="recent-orders">
-              <h3>Pedidos Recientes</h3>
-              <!-- Lista de los últimos pedidos -->
-            </div>
-          </div>
-          
-    </main>
+  <!-- Sidebar dinámico importado como módulo -->
+  <script type="module">
+    import { createSidebar } from './js/sidebar.js';
 
-    <script>
-        fetch('src/sidebar.html')
-          .then(response => response.text())
-          .then(data => {
-            document.getElementById('sidebar').innerHTML = data;
-          });
-    </script>
+    const sidebar = createSidebar();
+    document.getElementById("sidebar-container").appendChild(sidebar);
+  </script>
 
-    <script src="js/dashboard.js"></script>
-    
+  <!-- Lógica del dashboard -->
+  <script src="js/dashboard.js"></script>
+
 </body>
+
 </html>
