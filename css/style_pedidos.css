@@ -1,13 +1,14 @@
 /* GOOGLE FONTS */
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
-/* VARIABLES */
+/* NUEVA PALETA DE COLORES */
 :root {
-    --blanco: #f0f0f0;
-    --fondo: #FDEAF2;
-    --gris: #cbd6e2;
-    --chocolate: #4D312E;
-    --chocolate-claro: #B38877;
+    --color-marron-oscuro: #5E2D1E;
+    --color-rosa-pastel: #D4777C;
+    --color-rosa-claro: #ffd3d5;
+    --color-crema: #F8F5F3;
+    --color-marron-claro: #B6704F;
+    --color-texto: #000000;
 }
 
 /* RESET */
@@ -19,55 +20,24 @@
 
 body {
     font-family: 'Quicksand', sans-serif;
-    background-color: var(--fondo);
+    background-color: var(--color-rosa-claro);
     display: flex;
     min-height: 100vh;
 }
 
-/*- MENU -*/
-
+/* MENU */
 .menu__side {
     display: flex;
     flex-direction: column;
     max-width: 300px;
     width: 90%;
-    background-color: var(--chocolate);
-    border-radius: 0 30px 30px 0;
 }
 
-.name__page {
-    margin-top: 20px;
-    padding: 20px;
-    color: var(--blanco);
-    font-size: 30px;
-    text-align: center;
-}
-
-.options__menu {
-    display: flex;
-    flex-direction: column;
-    margin-top: 40px;
-}
-
-.options__menu a {
-    margin-top: 20px;
-    padding: 20px;
-    color: var(--blanco);
-    font-size: 18px;
-    text-decoration: none;
-}
-
-.options__menu a:hover {
-    background-color: var(--chocolate-claro);
-    transition: 1s;
-}
-
-/* --- */
-
+/* CONTENIDO PRINCIPAL */
 .Contenido-principal {
     flex: 1;
     display: flex;
-    flex-direction: column; /* Acomoda verticalmente */
+    flex-direction: column;
     align-items: center;
     padding: 20px;
 }
@@ -78,17 +48,17 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--blanco);
+    background-color: var(--color-crema);
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(77, 49, 46, 0.25);
+    box-shadow: 0 6px 12px rgba(94, 45, 30, 0.25);
     max-width: 1200px;
     width: 90%;
 }
 
 /* Título */
 .tabla-pedidos h2 {
-    color: var(--chocolate);
+    color: var(--color-marron-oscuro);
     font-size: 25px;
     margin-bottom: 20px;
 }
@@ -107,11 +77,11 @@ body {
 .busqueda-form input[type="date"] {
     padding: 10px 14px;
     font-size: 16px;
-    border: 1px solid var(--gris);
+    border: 1px solid var(--color-marron-claro);
     border-radius: 8px;
     width: 200px;
-    background-color: #f9f9f9;
-    color: var(--chocolate);
+    background-color: var(--color-rosa-claro);
+    color: var(--color-marron-oscuro);
 }
 
 .busqueda-form button {
@@ -119,26 +89,25 @@ body {
     font-size: 16px;
     border: none;
     border-radius: 8px;
-    background-color: var(--chocolate);
-    color: var(--blanco);
+    background-color: var(--color-marron-oscuro);
+    color: var(--color-crema);
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .busqueda-form button:hover {
-    background-color: var(--chocolate-claro);
+    background-color: var(--color-marron-claro);
 }
 
 .tabla-wrapper {
     width: 100%;
     overflow-x: auto;
-    max-height: 450px; /* ← Altura máxima visible */
+    max-height: 450px;
     overflow-y: auto;
-    border: 1px solid var(--gris);
+    border: 1px solid var(--color-marron-claro);
     border-radius: 8px;
 }
 
-/* Elimina esto del table si lo tienes: display: block */
 #tablaPedidos {
     width: 100%;
     border-collapse: collapse;
@@ -150,61 +119,59 @@ body {
 #tablaPedidos th, #tablaPedidos td {
     padding: 12px 15px;
     text-align: left;
-    border-bottom: 1px solid var(--gris);
+    border-bottom: 1px solid var(--color-marron-claro);
     font-size: 18px;
+    color: var(--color-texto);
 }
 
 #tablaPedidos th {
-    background-color: var(--chocolate);
-    color: var(--blanco);
+    background-color: var(--color-marron-oscuro);
+    color: var(--color-crema);
 }
 
 #tablaPedidos tr:nth-child(even) {
-    background-color: var(--gris);
+    background-color: var(--color-rosa-claro);
 }
 
 #tablaPedidos tr:hover {
-    background-color: var(--chocolate-claro);
+    background-color: var(--color-rosa-pastel);
     transition: background-color 0.3s ease;
 }
 
-/* Estilo para el selector de estado */
+/* Select Estado */
 #tablaPedidos td select.estado-select {
     font-size: 16px;
     padding: 8px 12px;
-    border: 1px solid var(--gris);
+    border: 1px solid var(--color-marron-claro);
     border-radius: 8px;
-    background-color: #f9f9f9;
-    color: var(--chocolate);
+    background-color: var(--color-rosa-claro);
+    color: var(--color-marron-oscuro);
     cursor: pointer;
     width: 100%;
     transition: background-color 0.3s ease;
 }
 
-/* Cambios de color al pasar el ratón por el selector de estado */
 #tablaPedidos td select.estado-select:hover {
-    background-color: var(--gris-claro);
+    background-color: var(--color-rosa-pastel);
 }
 
-/* Estilo para las filas con estado 'Pendiente' */
+/* Estados */
 #tablaPedidos td.estado.pending {
     color: #ffcc00;
     font-weight: bold;
 }
 
-/* Estilo para las filas con estado 'Entregado' */
 #tablaPedidos td.estado.completed {
     color: #28a745;
     font-weight: bold;
 }
 
-/* Estilo para las filas con estado 'Cancelado' */
 #tablaPedidos td.estado.cancelled {
     color: #dc3545;
     font-weight: bold;
 }
 
-/* Estilo para los botones de Editar y Guardar */
+/* Botones Editar y Guardar */
 .tabla-pedidos button.editar-btn,
 .tabla-pedidos button.guardar-btn {
     padding: 10px 16px;
@@ -216,7 +183,7 @@ body {
     margin: 5px;
 }
 
-/* Botón de Editar */
+/* Botón Editar */
 .tabla-pedidos button.editar-btn {
     background-color: #007bff;
     color: #fff;
@@ -226,7 +193,7 @@ body {
     background-color: #0056b3;
 }
 
-/* Botón de Guardar */
+/* Botón Guardar */
 .tabla-pedidos button.guardar-btn {
     background-color: #28a745;
     color: #fff;
@@ -238,13 +205,7 @@ body {
     opacity: 1;
 }
 
-/* Botón de Guardar deshabilitado */
-.tabla-pedidos button.guardar-btn:disabled {
-    background-color: #c6c6c6;
-    cursor: not-allowed;
-}
-
-/* Botón de Editar deshabilitado */
+.tabla-pedidos button.guardar-btn:disabled,
 .tabla-pedidos button.editar-btn:disabled {
     background-color: #c6c6c6;
     cursor: not-allowed;
@@ -301,13 +262,12 @@ body {
 }
 
 @media (max-width: 480px) {
-    /* Menú se coloca en la parte superior */
     .menu__side {
-        flex-direction: row; /* Horizontal */
-        position: sticky; /* Fija el menú al top */
-        top: 0; /* Lo coloca al principio de la pantalla */
-        width: 100%; /* Asegura que ocupe todo el ancho */
-        z-index: 1000; /* Para que esté encima del contenido */
+        flex-direction: row;
+        position: sticky;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
     }
 
     .name__page {
@@ -316,7 +276,7 @@ body {
 
     .options__menu {
         flex-direction: row;
-        justify-content: center; /* Centra los links */
+        justify-content: center;
         width: 100%;
     }
 

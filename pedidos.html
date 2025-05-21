@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Casita Bakery - Pedidos</title>
     <link rel="stylesheet" href="css/style_pedidos.css">
+    <link rel="stylesheet" href="css/sidebar.css">
     <link rel="icon" href="icon/Logo.png" type="image/x-icon">
 </head>
 <body>
 
-    <div class="menu__side" id="sidebar">
-    </div>
 
     <main class="Contenido-principal">
         <!-- Tabla de Pedidos -->
@@ -44,13 +43,12 @@
         </div>
     </main>
 
-    <script>
-        fetch('src/sidebar.html')
-          .then(response => response.text())
-          .then(data => {
-            document.getElementById('sidebar').innerHTML = data;
-          });
-    </script>
+    <script type="module">
+    import { createSidebar } from './js/sidebar.js';
+
+    const sidebar = createSidebar();
+    document.body.prepend(sidebar);
+</script>
 
     <script src="js/pedidos.js"></script>
 </body>

@@ -3,11 +3,12 @@
 
 /* VARIABLES */
 :root {
-    --blanco: #f0f0f0;
-    --fondo: #FDEAF2;
-    --gris: #cbd6e2;
-    --chocolate: #4D312E;
-    --chocolate-claro: #B38877;
+    --color-marron-oscuro: #5E2D1E;
+    --color-rosa-pastel: #D4777C;
+    --color-rosa-claro: #ffd3d5;
+    --color-crema: #F8F5F3;
+    --color-marron-claro: #B6704F;
+    --color-texto: #000000;
 }
 
 /* RESET */
@@ -19,9 +20,10 @@
 
 body {
     font-family: 'Quicksand', sans-serif;
-    background-color: var(--fondo);
+    background-color: var(--color-rosa-claro);
     display: flex;
     min-height: 100vh;
+    color: var(--color-texto);
 }
 
 /*- MENU -*/
@@ -31,35 +33,6 @@ body {
     flex-direction: column;
     max-width: 300px;
     width: 90%;
-    background-color: var(--chocolate);
-    border-radius: 0 30px 30px 0;
-}
-
-.name__page {
-    margin-top: 20px;
-    padding: 20px;
-    color: var(--blanco);
-    font-size: 30px;
-    text-align: center;
-}
-
-.options__menu {
-    display: flex;
-    flex-direction: column;
-    margin-top: 40px;
-}
-
-.options__menu a {
-    margin-top: 20px;
-    padding: 20px;
-    color: var(--blanco);
-    font-size: 18px;
-    text-decoration: none;
-}
-
-.options__menu a:hover {
-    background-color: var(--chocolate-claro);
-    transition: 1s;
 }
 
 /* --- */
@@ -67,7 +40,8 @@ body {
 .Contenido-principal {
     flex: 1;
     display: flex;
-    flex-direction: column; /* Acomoda verticalmente */
+    flex-direction: column;
+    /* Acomoda verticalmente */
     align-items: center;
     padding: 20px;
 }
@@ -76,16 +50,17 @@ body {
 
 .dashboard {
     padding: 20px;
-    background-color: #f5f5f5;
+    background-color: var(--color-crema);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: var(--color-texto);
 }
 
 .dashboard h2 {
     text-align: center;
     font-size: 28px;
     margin-bottom: 20px;
-    color: var(--chocolate);
+    color: var(--color-marron-oscuro);
 }
 
 .summary {
@@ -101,11 +76,12 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 200px;
+    color: var(--color-texto);
 }
 
 .card h3 {
     font-size: 18px;
-    color: var(--chocolate);
+    color: var(--color-marron-oscuro);
 }
 
 .card p {
@@ -120,21 +96,22 @@ body {
 }
 
 .actions .btn {
-    background-color: var(--chocolate);
+    background-color: var(--color-marron-oscuro);
     padding: 10px 20px;
     border-radius: 8px;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
+    color: var(--color-crema);
 }
 
 .actions .btn:hover {
-    background-color: var(--chocolate-claro);
+    background-color: var(--color-marron-claro);
 }
 
-.actions .btn a{
+.actions .btn a {
     text-decoration: none;
-    color: var(--blanco);
+    color: var(--color-crema);
 }
 
 .recent-orders {
@@ -142,11 +119,12 @@ body {
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: var(--color-texto);
 }
 
 .recent-orders h3 {
     font-size: 20px;
-    color: var(--chocolate);
+    color: var(--color-marron-oscuro);
 }
 
 @media (max-width: 768px) {
@@ -165,12 +143,14 @@ body {
         align-items: center;
         padding: 10px 0;
         position: relative;
+        background-color: var(--color-marron-oscuro);
     }
 
     .name__page {
         margin: 0;
         padding: 10px;
         font-size: 24px;
+        color: var(--color-crema);
     }
 
     .options__menu {
@@ -182,6 +162,7 @@ body {
         margin: 0 10px;
         padding: 10px 15px;
         font-size: 16px;
+        color: var(--color-crema);
     }
 
     .Contenido-principal {
@@ -232,31 +213,39 @@ body {
 
 }
 
-
 @media (max-width: 480px) {
 
     /* Menú se coloca en la parte superior */
     .menu__side {
-        flex-direction: row; /* Horizontal */
-        position: sticky; /* Fija el menú al top */
-        top: 0; /* Lo coloca al principio de la pantalla */
-        width: 100%; /* Asegura que ocupe todo el ancho */
-        z-index: 1000; /* Para que esté encima del contenido */
+        flex-direction: row;
+        /* Horizontal */
+        position: sticky;
+        /* Fija el menú al top */
+        top: 0;
+        /* Lo coloca al principio de la pantalla */
+        width: 100%;
+        /* Asegura que ocupe todo el ancho */
+        z-index: 1000;
+        /* Para que esté encima del contenido */
+        background-color: var(--color-marron-oscuro);
     }
 
     .name__page {
         font-size: 20px;
+        color: var(--color-crema);
     }
 
     .options__menu {
         flex-direction: row;
-        justify-content: center; /* Centra los links */
+        justify-content: center;
+        /* Centra los links */
         width: 100%;
     }
 
     .options__menu a {
         font-size: 14px;
         padding: 8px 10px;
+        color: var(--color-crema);
     }
 
     .dashboard {

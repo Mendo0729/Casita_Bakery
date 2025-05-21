@@ -3,11 +3,12 @@
 
 /* VARIABLES */
 :root {
-    --blanco: #f0f0f0;
-    --fondo: #FDEAF2;
-    --gris: #cbd6e2;
-    --chocolate: #4D312E;
-    --chocolate-claro: #B38877;
+    --color-marron-oscuro: #5E2D1E;
+    --color-rosa-pastel: #D4777C;
+    --color-rosa-claro: #ffd3d5;
+    --color-crema: #F8F5F3;
+    --color-marron-claro: #B6704F;
+    --color-texto: #000000;
 }
 
 /* RESET */
@@ -19,9 +20,10 @@
 
 body {
     font-family: 'Quicksand', sans-serif;
-    background-color: var(--fondo);
+    background-color: var(--color-rosa-claro);
     display: flex;
     min-height: 100vh;
+    color: var(--color-texto);
 }
 
 /*- MENU -*/
@@ -31,35 +33,6 @@ body {
     flex-direction: column;
     max-width: 300px;
     width: 90%;
-    background-color: var(--chocolate);
-    border-radius: 0 30px 30px 0;
-}
-
-.name__page {
-    margin-top: 20px;
-    padding: 20px;
-    color: var(--blanco);
-    font-size: 30px;
-    text-align: center;
-}
-
-.options__menu {
-    display: flex;
-    flex-direction: column;
-    margin-top: 40px;
-}
-
-.options__menu a {
-    margin-top: 20px;
-    padding: 20px;
-    color: var(--blanco);
-    font-size: 18px;
-    text-decoration: none;
-}
-
-.options__menu a:hover {
-    background-color: var(--chocolate-claro);
-    transition: 1s;
 }
 
 /* --- */
@@ -67,7 +40,7 @@ body {
 .Contenido-principal {
     flex: 1;
     display: flex;
-    flex-direction: column; /* Acomoda verticalmente */
+    flex-direction: column;
     align-items: center;
     padding: 20px;
 }
@@ -78,17 +51,17 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--blanco);
+    background-color: var(--color-crema);
     margin: 0 auto;
     padding: 40px;
     border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(77, 49, 46, 0.25);
+    box-shadow: 0 6px 12px rgba(94, 45, 30, 0.25);
     max-width: 800px;
     width: 90%;
 }
 
 .formulario-pedido h2 {
-    color: var(--chocolate);
+    color: var(--color-marron-oscuro);
     font-size: 25px;
 }
 
@@ -97,18 +70,17 @@ body {
     flex-direction: column;
     padding: 20px;
     width: 90%;
-    gap: 20px; /* Espacio entre elementos */
+    gap: 20px;
     font-size: 18px;
 }
 
-/* Inputs y Selects */
 .formulario input,
 .formulario select {
     width: 100%;
     padding: 12px 15px;
     margin-top: 5px;
     margin-bottom: 10px;
-    border: 1px solid var(--gris);
+    border: 1px solid var(--color-marron-claro);
     border-radius: 8px;
     font-size: 16px;
     background-color: #fff;
@@ -117,10 +89,10 @@ body {
 /* Opciones de cantidad */
 #opcionesCantidad {
     margin-top: 20px;
-    background-color: var(--blanco);
+    background-color: var(--color-crema);
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(77, 49, 46, 0.25);
+    box-shadow: 0 6px 12px rgba(94, 45, 30, 0.25);
     width: 90%;
     display: flex;
     flex-direction: column;
@@ -128,7 +100,7 @@ body {
 }
 
 #opcionesCantidad p {
-    color: var(--chocolate);
+    color: var(--color-marron-oscuro);
     font-size: 20px;
     font-weight: bold;
 }
@@ -138,7 +110,7 @@ body {
     align-items: center;
     gap: 10px;
     font-size: 18px;
-    color: var(--chocolate);
+    color: var(--color-marron-oscuro);
     cursor: pointer;
 }
 
@@ -148,15 +120,14 @@ body {
     cursor: pointer;
 }
 
-/* Estilo para mostrar las opciones cuando sean visibles */
 #opcionesCantidad.show {
     display: flex;
 }
 
 /* Botones */
 .formulario button {
-    background-color: var(--chocolate);
-    color: var(--blanco);
+    background-color: var(--color-marron-oscuro);
+    color: var(--color-crema);
     border: none;
     padding: 12px 20px;
     border-radius: 8px;
@@ -166,7 +137,7 @@ body {
 }
 
 .formulario button:hover {
-    background-color: var(--chocolate-claro);
+    background-color: var(--color-marron-claro);
 }
 
 /* Productos seleccionados */
@@ -182,7 +153,7 @@ body {
 #listaProductos h3 {
     margin-top: 20px;
     font-size: 20px;
-    color: var(--chocolate);
+    color: var(--color-marron-oscuro);
 }
 
 .tarjeta-mensaje {
@@ -266,7 +237,6 @@ body {
         gap: 15px;
     }
 
-    /* Cambios en las opciones de cantidad */
     #opcionesCantidad {
         width: 100%;
         padding: 15px;
@@ -288,13 +258,12 @@ body {
 
 /* Celulares */
 @media (max-width: 480px) {
-    /* Menú se coloca en la parte superior */
     .menu__side {
-        flex-direction: row; /* Horizontal */
-        position: sticky; /* Fija el menú al top */
-        top: 0; /* Lo coloca al principio de la pantalla */
-        width: 100%; /* Asegura que ocupe todo el ancho */
-        z-index: 1000; /* Para que esté encima del contenido */
+        flex-direction: row;
+        position: sticky;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
     }
 
     .name__page {
@@ -303,7 +272,7 @@ body {
 
     .options__menu {
         flex-direction: row;
-        justify-content: center; /* Centra los links */
+        justify-content: center;
         width: 100%;
     }
 
@@ -331,12 +300,10 @@ body {
         font-size: 18px;
     }
 
-    /* Para asegurar que el contenido no se superponga con el menú */
     .Contenido-principal {
-        padding-top: 70px; /* Para dar espacio debajo del menú */
+        padding-top: 70px;
     }
 
-    /* Cambios en las opciones de cantidad */
     #opcionesCantidad {
         width: 100%;
         padding: 12px;
