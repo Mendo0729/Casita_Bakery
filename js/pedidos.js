@@ -1,4 +1,4 @@
-const URL_SHEET = 'https://script.google.com/macros/s/AKfycbw4vEHSVXKee4IOz1EK03OssFcCaa0KfwUGbZ4GIxBWrWy8utGaWNuvhI84cYjLHg1b/exec';
+const URL_SHEET = 'https://script.google.com/macros/s/AKfycbzNhM_JqQDj8y94UEDKhIFqfTGbpSGkraEUJq1lxZbs9-jD9ABop60oZDzcxDrFSNML/exec';
 
 document.addEventListener('DOMContentLoaded', function () {
     const tabla = document.getElementById('tablaPedidos');
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const fechaBuscar = inputFecha.value;
 
         const filtrados = datosPedidos.filter(pedido => {
-            const nombreMatch = pedido.nombre.toLowerCase().includes(nombreBuscar);
+            const nombreMatch = (pedido.nombre || '').toLowerCase().includes(nombreBuscar);
             const fechaMatch = fechaBuscar ? pedido.fecha === fechaBuscar : true;
             return nombreMatch && fechaMatch;
         });
@@ -40,7 +40,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 return response.json();
             })
             .then(data => {
-                // Filtrar solo los pedidos con estado 'Pendiente'
                 datosPedidos = data.filter(p => p.estado === 'Pendiente');
                 mostrarPedidos(datosPedidos);
             })
@@ -48,6 +47,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.error('Error al cargar los pedidos:', error);
                 alert('No se pudieron cargar los pedidos');
             });
+    }
+
+    function limpiarTexto(texto) {
+        return texto.replace(/</g, "&lt;").replace(/>/g, "&gt;");
     }
 
     function mostrarPedidos(pedidos) {
@@ -78,6 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <td>
                     <button class="editar-btn">Editar</button>
                     <button class="guardar-btn" disabled>Guardar</button>
+                    <button class="eliminar-btn">Eliminar</button>
                 </td>
             `;
 
@@ -85,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const btnEditar = fila.querySelector('.editar-btn');
             const btnGuardar = fila.querySelector('.guardar-btn');
+            const btnEliminar = fila.querySelector('.eliminar-btn');
 
             btnEditar.addEventListener('click', () => {
                 fila.querySelectorAll('td[contenteditable]').forEach(td => td.contentEditable = true);
@@ -98,32 +103,68 @@ document.addEventListener('DOMContentLoaded', function () {
                 btnGuardar.disabled = true;
                 btnEditar.disabled = false;
                 fila.querySelector('.estado-select').disabled = true;
-            
+
+                const nombre = limpiarTexto(fila.children[1].textContent.trim());
+                const pedidoTexto = limpiarTexto(fila.children[2].textContent.trim());
+                const fechaTexto = fila.children[3].textContent.trim();
+                let fechaISO = '';
+
+                if (!isNaN(Date.parse(fechaTexto))) {
+                    fechaISO = new Date(fechaTexto).toISOString();
+                } else {
+                    alert('La fecha no es válida. Usa el formato YYYY-MM-DD.');
+                    return;
+                }
+
                 const datosActualizados = {
                     accion: 'actualizar',
                     timestamp: fila.children[0].textContent,
-                    nombre: fila.children[1].textContent,
-                    pedido: fila.children[2].textContent,
-                    fecha: new Date(fila.children[3].textContent).toISOString(),
-                    estado: fila.querySelector('.estado-select').value  // Aquí se toma el valor del select
+                    nombre: nombre,
+                    pedido: pedidoTexto,
+                    fecha: fechaISO,
+                    estado: fila.querySelector('.estado-select').value
                 };
-            
+
                 fetch(URL_SHEET, {
                     method: 'POST',
-                    mode: 'no-cors',               // ← Aquí añadimos no-cors
+                    mode: 'no-cors',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify(datosActualizados)
                 })
                     .then(() => {
-                        // Con no-cors no podemos leer body, asumimos éxito
                         alert("Pedido actualizado correctamente.");
+                        cargarPedidos(); // recargar lista
                     })
                     .catch(error => {
                         console.error('Error al actualizar el pedido:', error);
                         alert('Error al intentar actualizar el pedido.');
                     });
+            });
+
+            btnEliminar.addEventListener('click', () => {
+                if (confirm('¿Estás seguro de eliminar este pedido?')) {
+                    fetch(URL_SHEET, {
+                        method: 'POST',
+                        mode:'no-cors',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            accion: 'eliminar',
+                            timestamp: pedido.timestamp
+                        })
+                    })
+                        .then(() => {
+                            alert("Pedido eliminado correctamente.");
+                            cargarPedidos();
+                        })
+                        .catch(error => {
+                            console.error('Error al eliminar el pedido:', error);
+                            alert('Error al intentar eliminar el pedido.');
+                        });
+                }
             });
         });
     }
