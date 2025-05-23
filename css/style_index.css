@@ -133,37 +133,6 @@ body {
         flex-direction: column;
     }
 
-    .menu__side {
-        flex-direction: row;
-        max-width: 100%;
-        width: 100%;
-        height: auto;
-        border-radius: 0;
-        justify-content: center;
-        align-items: center;
-        padding: 10px 0;
-        position: relative;
-        background-color: var(--color-marron-oscuro);
-    }
-
-    .name__page {
-        margin: 0;
-        padding: 10px;
-        font-size: 24px;
-        color: var(--color-crema);
-    }
-
-    .options__menu {
-        flex-direction: row;
-        margin-top: 0;
-    }
-
-    .options__menu a {
-        margin: 0 10px;
-        padding: 10px 15px;
-        font-size: 16px;
-        color: var(--color-crema);
-    }
 
     .Contenido-principal {
         padding: 10px;
@@ -214,39 +183,6 @@ body {
 }
 
 @media (max-width: 480px) {
-
-    /* Menú se coloca en la parte superior */
-    .menu__side {
-        flex-direction: row;
-        /* Horizontal */
-        position: sticky;
-        /* Fija el menú al top */
-        top: 0;
-        /* Lo coloca al principio de la pantalla */
-        width: 100%;
-        /* Asegura que ocupe todo el ancho */
-        z-index: 1000;
-        /* Para que esté encima del contenido */
-        background-color: var(--color-marron-oscuro);
-    }
-
-    .name__page {
-        font-size: 20px;
-        color: var(--color-crema);
-    }
-
-    .options__menu {
-        flex-direction: row;
-        justify-content: center;
-        /* Centra los links */
-        width: 100%;
-    }
-
-    .options__menu a {
-        font-size: 14px;
-        padding: 8px 10px;
-        color: var(--color-crema);
-    }
 
     .dashboard {
         padding: 8px;

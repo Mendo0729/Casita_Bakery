@@ -15,19 +15,41 @@
 
     <main class="Contenido-principal">
 
+        </div>
+
         <div class="tabla-inventario">
 
             <h2>Inventario de Productos</h2>
+
+            <div class="agregar-producto">
+
+                <button id="toggleFormBtn"><img src="img/agregar.png" alt="ASgregar producto"></button>
+
+                <form id="formProducto" class="formulario-producto oculto">
+
+                    <h2>Agregar Producto</h2>
+
+                    <input type="text" name="producto" placeholder="Nombre del producto" required>
+                    <input type="text" name="marca" placeholder="Marca" required>
+                    <input type="number" name="cantidad" placeholder="Cantidad" required>
+                    <input type="text" name="observaciones" placeholder="Observaciones">
+                    <button type="submit">Guardar</button>
+                </form>
+            </div>
 
             <div class="tabla-wrapper">
                 <table id="tablainventario">
                     <thead>
                         <tr>
+                            <th>ID</th>
                             <th>Producto</th>
+                            <th>Marca</th>
                             <th>Cantidad</th>
+                            <th>Observaciones</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
+
                     <tbody>
                         <!-- Aquí se agregarán las filas de pedidos -->
                     </tbody>
@@ -35,7 +57,7 @@
             </div>
 
         </div>
-        
+
     </main>
 
     <script type="module">

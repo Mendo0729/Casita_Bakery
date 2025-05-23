@@ -43,3 +43,272 @@ body {
     align-items: center;
     padding: 20px;
 }
+
+/* Tabla de Pedidos */
+.tabla-inventario {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--color-crema);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(94, 45, 30, 0.25);
+    max-width: 1200px;
+    width: 90%;
+}
+
+/* Título */
+.tabla-inventario h2 {
+    color: var(--color-marron-oscuro);
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.agregar-producto {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 15px;
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Botón de agregar con ícono */
+#toggleFormBtn {
+    background-color: var(--color-marron-claro);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#toggleFormBtn:hover {
+    background-color: var(--color-marron-oscuro);
+}
+
+#toggleFormBtn img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Estilo del formulario */
+.formulario-producto {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background-color: var(--color-crema);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--color-marron-claro);
+    animation: fadeIn 0.3s ease;
+    width: 100%;
+}
+
+.formulario-producto input,
+.formulario-producto button {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+.formulario-producto input:focus {
+    outline: none;
+    border-color: var(--color-marron-claro);
+}
+
+.formulario-producto button {
+    background-color: var(--color-marron-oscuro);
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.formulario-producto button:hover {
+    background-color: var(--color-marron-claro);
+}
+
+/* Oculta el formulario inicialmente */
+.oculto {
+    display: none;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+.tabla-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    max-height: 450px;
+    overflow-y: auto;
+    border: 1px solid var(--color-marron-claro);
+    border-radius: 8px;
+}
+
+#tablainventario {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    min-width: 600px;
+}
+
+#tablainventario th, #tablainventario td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--color-marron-claro);
+    font-size: 18px;
+    color: var(--color-texto);
+}
+
+#tablainventario th {
+    background-color: var(--color-marron-oscuro);
+    color: var(--color-crema);
+}
+
+#tablainventario tr:nth-child(even) {
+    background-color: var(--color-rosa-claro);
+}
+
+#tablainventario tr:hover {
+    background-color: var(--color-rosa-pastel);
+    transition: background-color 0.3s ease;
+}
+
+/* Estilos para los botones de acción en la tabla */
+#tablainventario .btn-editar,
+#tablainventario .btn-guardar,
+#tablainventario .btn-eliminar {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    margin: 0 3px;
+    transition: transform 0.2s ease;
+}
+
+#tablainventario .btn-editar:hover,
+#tablainventario .btn-guardar:hover,
+#tablainventario .btn-eliminar:hover {
+    transform: scale(1.2);
+}
+
+/* Iconos dentro de los botones */
+#tablainventario button img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+/* Opcional: puedes darles color según su función */
+.btn-editar img {
+    filter: hue-rotate(200deg); /* tono azulado */
+}
+
+.btn-guardar img {
+    filter: hue-rotate(100deg); /* tono verdoso */
+}
+
+.btn-eliminar img {
+    filter: hue-rotate(0deg) saturate(150%); /* tono rojizo más fuerte */
+}
+
+
+/* Tablets */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    .menu__side {
+        flex-direction: row;
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        border-radius: 0;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 0;
+        position: relative;
+    }
+
+    .name__page {
+        margin: 0;
+        padding: 10px;
+        font-size: 24px;
+    }
+
+    .options__menu {
+        flex-direction: row;
+        margin-top: 0;
+    }
+
+    .options__menu a {
+        margin: 0 10px;
+        padding: 10px 15px;
+        font-size: 16px;
+    }
+
+    .Contenido-principal {
+        padding: 10px;
+    }
+
+    .tabla-pedidos {
+        padding: 20px;
+    }
+
+    #tablaPedidos th,
+    #tablaPedidos td {
+        padding: 10px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu__side {
+        flex-direction: row;
+        position: sticky;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    .name__page {
+        font-size: 20px;
+    }
+
+    .options__menu {
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .options__menu a {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+
+    .tabla-pedidos {
+        padding: 15px;
+    }
+
+    #tablaPedidos th,
+    #tablaPedidos td {
+        padding: 8px;
+        font-size: 14px;
+    }
+}

@@ -195,37 +195,8 @@ body {
         flex-direction: column;
     }
 
-    .menu__side {
-        flex-direction: row;
-        max-width: 100%;
-        width: 100%;
-        height: auto;
-        border-radius: 0;
-        justify-content: center;
-        align-items: center;
-        padding: 10px 0;
-        position: relative;
-    }
-
-    .name__page {
-        margin: 0;
-        padding: 10px;
-        font-size: 24px;
-    }
-
-    .options__menu {
-        flex-direction: row;
-        margin-top: 0;
-    }
-
-    .options__menu a {
-        margin: 0 10px;
-        padding: 10px 15px;
-        font-size: 16px;
-    }
-
     .Contenido-principal {
-        padding: 10px;
+        padding: 30px;
     }
 
     .formulario-pedido {
@@ -258,28 +229,6 @@ body {
 
 /* Celulares */
 @media (max-width: 480px) {
-    .menu__side {
-        flex-direction: row;
-        position: sticky;
-        top: 0;
-        width: 100%;
-        z-index: 1000;
-    }
-
-    .name__page {
-        font-size: 20px;
-    }
-
-    .options__menu {
-        flex-direction: row;
-        justify-content: center;
-        width: 100%;
-    }
-
-    .options__menu a {
-        font-size: 14px;
-        padding: 8px 10px;
-    }
 
     .formulario-pedido h2 {
         font-size: 20px;

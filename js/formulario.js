@@ -114,7 +114,8 @@ function eliminarProducto(index) {
     actualizarLista();
 }
 
-const URL_SHEET = 'https://script.google.com/macros/s/AKfycbzNhM_JqQDj8y94UEDKhIFqfTGbpSGkraEUJq1lxZbs9-jD9ABop60oZDzcxDrFSNML/exec';
+const URL_SHEET = 'https://script.google.com/macros/s/AKfycby8_eGggdQMUITQyahL0G9T6dDmCQBzO1wMsu8gHxdudVdYitxsvXLeQ3dSQlVrUGll/exec';
+
 
 function enviarPedido(e) {
     e.preventDefault();

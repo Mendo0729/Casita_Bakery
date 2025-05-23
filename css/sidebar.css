@@ -81,9 +81,9 @@
         width: 100%;
         height: auto;
         border-radius: 0;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
-        padding: 10px 0;
+        padding: 10px 10px;
         position: fixed;
         top: 0;
         left: 0;
@@ -102,10 +102,25 @@
         color: var(--color-crema);
     }
 
+    /* Mostrar botón hamburguesa en tablets también */
+    .hamburger-btn {
+        display: block;
+    }
+
     .options__menu {
-        flex-direction: row;
-        margin-top: 0;
-        gap: 10px;
+        display: none;
+        flex-direction: column;
+        background-color: var(--color-marron-oscuro);
+        width: 100%;
+        position: absolute;
+        top: 20px;
+        left: 0;
+        padding: 10px 0;
+        z-index: 999;
+    }
+
+    .options__menu.active {
+        display: flex;
     }
 
     .options__menu a {
@@ -113,25 +128,13 @@
         padding: 8px 12px;
         font-size: 14px;
         color: var(--color-crema);
+        justify-content: flex-start;
     }
 }
 
+
 /* ----------------- RESPONSIVE CELULARES ----------------- */
 @media (max-width: 480px) {
-    .menu__side {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        height: 60px;
-        padding: 0 10px;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 1000;
-        background-color: var(--color-marron-oscuro);
-        border-radius: 0;
-    }
 
     #sidebar-container {
         position: fixed;
@@ -150,40 +153,5 @@
         font-size: 18px;
         padding: 0;
         margin: 0;
-    }
-
-    /* Mostrar botón hamburguesa */
-    .hamburger-btn {
-        display: block;
-    }
-
-    /* Ocultar menú por defecto */
-    .options__menu {
-        display: none;
-        flex-direction: column;
-        background-color: var(--color-marron-oscuro);
-        width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        padding: 10px 0;
-        z-index: 999;
-    }
-
-    /* Mostrar menú cuando está activo (clase JS) */
-    .options__menu.active {
-        display: flex;
-    }
-
-    .options__menu a {
-        justify-content: flex-start;
-        font-size: 13px;
-        padding: 6px 20px;
-        margin: 0;
-    }
-
-    .menu-icon {
-        width: 20px;
-        height: 20px;
     }
 }
