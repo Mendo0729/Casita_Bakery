@@ -185,6 +185,10 @@ body {
 
 @media (max-width: 480px) {
 
+    .Contenido-principal {
+        padding: 30px;
+    }
+
     .dashboard {
         padding: 8px;
     }
