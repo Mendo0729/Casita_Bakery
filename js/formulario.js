@@ -106,6 +106,7 @@ function actualizarLista() {
 
         li.appendChild(botonEliminar);
         lista.appendChild(li);
+        
     });
 }
 

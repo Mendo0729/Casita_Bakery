@@ -19,6 +19,7 @@ function fetchPedidos() {
             const hoy = new Date();
             const hace7Dias = new Date(hoy);
             hace7Dias.setDate(hoy.getDate() - 7);
+            
 
             data.forEach(pedido => {
                 const estado = pedido.estado?.toLowerCase();

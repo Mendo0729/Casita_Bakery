@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const btnLimpiar = document.getElementById('limpiarBusqueda');
 
     let datosPedidos = [];
+    
 
     formBusqueda.addEventListener('submit', function (e) {
         e.preventDefault();

@@ -214,6 +214,7 @@ body {
     pointer-events: none;
 }
 
+
 /* Opcional: puedes darles color según su función */
 .btn-editar img {
     filter: hue-rotate(200deg); /* tono azulado */

@@ -101,6 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         }
                     }
                 });
+                
 
                 tabla.appendChild(fila);
             });

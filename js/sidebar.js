@@ -63,6 +63,7 @@ export function createSidebar() {
     // Toggle del menú con el botón hamburguesa
     toggleButton.addEventListener("click", () => {
         optionsMenu.classList.toggle("active");
+        
     });
 
     return menuSide;
