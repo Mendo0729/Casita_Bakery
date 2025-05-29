@@ -1,4 +1,4 @@
-function mostrarMensaje(texto, tipo = 'exito') {
+/*function mostrarMensaje(texto, tipo = 'exito') {
   const mensaje = document.getElementById('mensaje');
   mensaje.textContent = texto;
   mensaje.className = `tarjeta-mensaje ${tipo}`;
@@ -144,4 +144,4 @@ function enviarPedido(e) {
       console.error('Error:', error);
       mostrarMensaje('Error al guardar el Pedido', 'error');
   });
-}
+}*/
