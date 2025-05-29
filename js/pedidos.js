@@ -257,11 +257,11 @@ function mostrarPedidos(pedidos) {
     pedidos.forEach(p => {
         const fila = document.createElement('tr');
         fila.innerHTML = `
-            <td>${p.timestamp}</td>
-            <td contenteditable="false">${p.nombre}</td>
-            <td contenteditable="false">${p.pedido}</td>
-            <td contenteditable="false">${p.fecha}</td>
-            <td>
+            <td data-label="Fecha-Entrada">${p.timestamp}</td>
+            <td data-label="Cliente" contenteditable="false">${p.nombre}</td>
+            <td data-label="Pedido" contenteditable="false">${p.pedido}</td>
+            <td data-label="Fecha-Entrega" contenteditable="false">${p.fecha}</td>
+            <td data-label="Estado">
                 <select class="estado-select" disabled>
                     <option value="Pendiente" ${p.estado === 'Pendiente' ? 'selected' : ''}>Pendiente</option>
                     <option value="Completado" ${p.estado === 'Completado' ? 'selected' : ''}>Completado</option>
@@ -271,7 +271,7 @@ function mostrarPedidos(pedidos) {
                     <button class="btn-editar" type="button"><img src="img/editar.png" alt="Editar"></button>
                     <button class="btn-guardar" type="button" style="display: none;"><img src="img/guardar.png" alt="Guardar"></button>
                     <button class="btn-eliminar" type="button"><img src="img/basura.png" alt="Eliminar"></button>
-                    <button class="btn-cancelar" style="display:none;"><img src="img/cancelar.png" alt="Cancelar"></button>
+                    <button class="btn-cancelar" style="display:none;">Cancelar</button>
                 </td>
         `;
 
