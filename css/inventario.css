@@ -1,5 +1,5 @@
 /* GOOGLE FONTS */
-@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
 
 /* VARIABLES */
 :root {
@@ -9,6 +9,9 @@
     --color-crema: #F8F5F3;
     --color-marron-claro: #B6704F;
     --color-texto: #000000;
+    --color-exito: #28a745;
+    --color-error: #dc3545;
+    --color-info: #17a2b8;
 }
 
 /* RESET */
@@ -26,8 +29,7 @@ body {
     color: var(--color-texto);
 }
 
-/*- MENU -*/
-
+/* LAYOUT */
 .menu__side {
     display: flex;
     flex-direction: column;
@@ -35,281 +37,479 @@ body {
     width: 90%;
 }
 
-.Contenido-principal {
+.contenido-principal {
     flex: 1;
     display: flex;
     flex-direction: column;
-    /* Acomoda verticalmente */
-    align-items: center;
+    align-items: stretch;
     padding: 20px;
 }
 
-/* Tabla de Pedidos */
-.tabla-inventario {
-    margin-top: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: var(--color-crema);
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(94, 45, 30, 0.25);
-    max-width: 1200px;
-    width: 90%;
+.contenido-principal h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--color-marron-oscuro);
 }
 
-/* Título */
-.tabla-inventario h2 {
-    color: var(--color-marron-oscuro);
-    font-size: 25px;
+/* Botón agregar producto */
+.btn-abrir-modal {
+    width: 100%;
+    text-align: right;
     margin-bottom: 20px;
 }
 
-.agregar-producto {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 15px;
-    margin-bottom: 30px;
-    width: 100%;
-    max-width: 600px;
-}
-
-/* Botón de agregar con ícono */
-#toggleFormBtn {
+#abrirModal {
     background-color: var(--color-marron-claro);
+    color: white;
+    padding: 10px 20px;
     border: none;
     border-radius: 8px;
-    padding: 10px 15px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
-#toggleFormBtn:hover {
+#abrirModal:hover {
     background-color: var(--color-marron-oscuro);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-#toggleFormBtn img {
-    width: 24px;
-    height: 24px;
+/* ---------------------- MODAL ---------------------- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1100; /* Mayor que el sidebar */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-/* Estilo del formulario */
+.modal.mostrar {
+    display: block;
+    opacity: 1;
+}
+
+.modal-contenido {
+    background-color: var(--color-crema);
+    margin: 5% auto;
+    padding: 25px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.close {
+    color: var(--color-marron-oscuro);
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: var(--color-rosa-pastel);
+}
+
+/* Formulario de producto */
 .formulario-producto {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    background-color: var(--color-crema);
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid var(--color-marron-claro);
-    animation: fadeIn 0.3s ease;
-    width: 100%;
+    gap: 15px;
+    margin-top: 15px;
 }
 
-.formulario-producto input,
-.formulario-producto button {
+.campos {
+    display: flex;
+    flex-direction: column;
+}
+
+.campos label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--color-marron-oscuro);
+}
+
+.campos input {
     padding: 12px;
-    font-size: 16px;
     border-radius: 6px;
-    border: 1px solid #ccc;
-    width: 100%;
+    border: 1px solid #ddd;
+    font-family: 'Quicksand', sans-serif;
+    transition: border-color 0.3s ease;
 }
 
-.formulario-producto input:focus {
+.campos input:focus {
     outline: none;
     border-color: var(--color-marron-claro);
+    box-shadow: 0 0 0 2px rgba(182, 112, 79, 0.2);
 }
 
 .formulario-producto button {
-    background-color: var(--color-marron-oscuro);
+    margin-top: 15px;
+    padding: 12px;
+    background-color: var(--color-marron-claro);
     color: white;
-    font-weight: bold;
+    font-weight: 600;
     border: none;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    transition: all 0.3s ease;
 }
 
 .formulario-producto button:hover {
+    background-color: var(--color-marron-oscuro);
+    transform: translateY(-2px);
+}
+
+/* ---------------------- TABLA INVENTARIO ---------------------- */
+.tabla-inventario {
+    margin-top: 20px;
+    background-color: var(--color-crema);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(94, 45, 30, 0.1);
+}
+
+/* Buscador */
+.busqueda-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.busqueda-form input {
+    padding: 10px 15px;
+    flex: 1;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.busqueda-form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--color-marron-oscuro);
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.busqueda-form button:hover {
     background-color: var(--color-marron-claro);
 }
 
-/* Oculta el formulario inicialmente */
-.oculto {
-    display: none;
-}
-
-/* Animación de entrada */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-
+/* Tabla */
 .tabla-wrapper {
-    width: 100%;
     overflow-x: auto;
-    max-height: 450px;
-    overflow-y: auto;
-    border: 1px solid var(--color-marron-claro);
+    max-height: 500px;
     border-radius: 8px;
 }
 
-#tablainventario {
+#tablaInventario {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
     background-color: #fff;
     min-width: 600px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-#tablainventario th, #tablainventario td {
-    padding: 12px 15px;
+#tablaInventario th,
+#tablaInventario td {
+    border: 1px solid #eee;
+    padding: 12px;
     text-align: left;
-    border-bottom: 1px solid var(--color-marron-claro);
-    font-size: 18px;
+    font-size: 0.95rem;
     color: var(--color-texto);
 }
 
-#tablainventario th {
-    background-color: var(--color-marron-oscuro);
-    color: var(--color-crema);
-}
-
-#tablainventario tr:nth-child(even) {
-    background-color: var(--color-rosa-claro);
-}
-
-#tablainventario tr:hover {
+#tablaInventario th {
     background-color: var(--color-rosa-pastel);
-    transition: background-color 0.3s ease;
+    color: white;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
 }
 
-/* Estilos para los botones de acción en la tabla */
-#tablainventario .btn-editar,
-#tablainventario .btn-guardar,
-#tablainventario .btn-eliminar {
-    background: none;
+#tablaInventario tr:nth-child(even) {
+    background-color: rgba(248, 245, 243, 0.5);
+}
+
+#tablaInventario tr:hover {
+    background-color: rgba(212, 119, 124, 0.1);
+}
+
+/* Acciones */
+/* Acciones */
+#tablaInventario .acciones {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+#tablaInventario .btn-editar,
+#tablaInventario .btn-guardar,
+#tablaInventario .btn-eliminar {
+    padding: 6px 10px; /* Reducir un poco el padding */
+    font-size: 0.9rem;
     border: none;
+    border-radius: 6px;
     cursor: pointer;
-    padding: 5px;
-    margin: 0 3px;
-    transition: transform 0.2s ease;
+    transition: all 0.3s ease;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px; /* Ancho mínimo para consistencia */
+    min-height: 36px; /* Altura mínima para consistencia */
 }
 
-#tablainventario .btn-editar:hover,
-#tablainventario .btn-guardar:hover,
-#tablainventario .btn-eliminar:hover {
-    transform: scale(1.2);
-}
-
-/* Iconos dentro de los botones */
-#tablainventario button img {
-    width: 22px;
-    height: 22px;
+/* Nuevos estilos para las imágenes */
+#tablaInventario .btn-editar img,
+#tablaInventario .btn-guardar img,
+#tablaInventario .btn-eliminar img {
+    width: 18px;
+    height: 18px;
     object-fit: contain;
-    pointer-events: none;
+    filter: brightness(0) invert(1); /* Para asegurar visibilidad en botones oscuros */
 }
 
-
-/* Opcional: puedes darles color según su función */
-.btn-editar img {
-    filter: hue-rotate(200deg); /* tono azulado */
+#tablaInventario .btn-editar {
+    background-color: var(--color-marron-claro);
 }
 
-.btn-guardar img {
-    filter: hue-rotate(100deg); /* tono verdoso */
+#tablaInventario .btn-editar:hover {
+    background-color: var(--color-marron-oscuro);
+    transform: translateY(-2px);
 }
 
-.btn-eliminar img {
-    filter: hue-rotate(0deg) saturate(150%); /* tono rojizo más fuerte */
+#tablaInventario .btn-guardar {
+    background-color: var(--color-exito);
 }
 
+#tablaInventario .btn-guardar:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
 
-/* Tablets */
+#tablaInventario .btn-eliminar {
+    background-color: var(--color-error);
+}
+
+#tablaInventario .btn-eliminar:hover {
+    background-color: #bd2130;
+    transform: translateY(-2px);
+}
+
+/* ESTILOS PARA MENSAJES */
+.alerta {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    z-index: 1100;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transform: translateX(120%);
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    max-width: 350px;
+}
+
+.alerta.mostrar {
+    transform: translateX(0);
+}
+
+.alerta-exito {
+    background-color: var(--color-exito);
+    border-left: 5px solid #1e7e34;
+}
+
+.alerta-error {
+    background-color: var(--color-error);
+    border-left: 5px solid #a71d2a;
+}
+
+.alerta-info {
+    background-color: var(--color-info);
+    border-left: 5px solid #117a8b;
+}
+
+.alerta i {
+    font-size: 1.4rem;
+}
+
+/* MENSAJE DE CARGA */
+.cargando {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s linear infinite;
+    margin-right: 10px;
+}
+
+.tabla-cargando tr td {
+    position: relative;
+    color: transparent;
+}
+
+.tabla-cargando tr td::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 16px;
+    background-color: #eee;
+    border-radius: 4px;
+}
+
+.tabla-cargando tr td:first-child::after {
+    width: 40px;
+}
+
+/* ANIMACIONES */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* ---------------------- RESPONSIVE ---------------------- */
 @media (max-width: 768px) {
     body {
         flex-direction: column;
     }
 
     .menu__side {
-        flex-direction: row;
         max-width: 100%;
         width: 100%;
-        height: auto;
-        border-radius: 0;
-        justify-content: center;
-        align-items: center;
-        padding: 10px 0;
-        position: relative;
     }
 
-    .name__page {
-        margin: 0;
-        padding: 10px;
-        font-size: 24px;
+    .contenido-principal {
+        padding: 15px;
     }
 
-    .options__menu {
-        flex-direction: row;
-        margin-top: 0;
-    }
-
-    .options__menu a {
-        margin: 0 10px;
-        padding: 10px 15px;
-        font-size: 16px;
-    }
-
-    .Contenido-principal {
-        padding: 10px;
-    }
-
-    .tabla-pedidos {
+    .modal-contenido {
+        width: 95%;
+        margin: 20% auto;
         padding: 20px;
     }
 
-    #tablaPedidos th,
-    #tablaPedidos td {
+    /* Mensajes en móvil */
+    .alerta {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        max-width: calc(100% - 20px);
+    }
+
+    /* Tabla responsive mejorada */
+    #tablaInventario {
+        min-width: 100% !important; /* Elimina el ancho mínimo fijo */
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
+    }
+
+    #tablaInventario thead {
+        display: none;
+    }
+
+    #tablaInventario tbody {
+        display: block;
+        width: 100%;
+    }
+
+    #tablaInventario tr {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
         padding: 10px;
-        font-size: 16px;
+        background-color: white;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    #tablaInventario td {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 10px;
+        text-align: right;
+        border: none;
+        border-bottom: 1px solid #eee;
+    }
+
+    #tablaInventario td:last-child {
+        border-bottom: none;
+    }
+
+    #tablaInventario td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: var(--color-marron-oscuro);
+        margin-right: 10px;
+        text-align: left;
+    }
+
+    #tablaInventario .acciones {
+        justify-content: center;
+        padding-top: 10px;
+        margin-top: 10px;
+        border-top: 1px solid #eee;
     }
 }
 
 @media (max-width: 480px) {
-    .menu__side {
-        flex-direction: row;
-        position: sticky;
-        top: 0;
+    .busqueda-form {
+        flex-direction: column;
+    }
+    
+    .formulario-producto button,
+    .busqueda-form button {
         width: 100%;
-        z-index: 1000;
-    }
-
-    .name__page {
-        font-size: 20px;
-    }
-
-    .options__menu {
-        flex-direction: row;
-        justify-content: center;
-        width: 100%;
-    }
-
-    .options__menu a {
-        font-size: 14px;
-        padding: 8px 10px;
-    }
-
-    .tabla-pedidos {
-        padding: 15px;
-    }
-
-    #tablaPedidos th,
-    #tablaPedidos td {
-        padding: 8px;
-        font-size: 14px;
     }
 }

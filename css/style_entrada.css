@@ -1,4 +1,5 @@
-/* GOOGLE FONTS */
+/*
+/* GOOGLE FONTS *
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
 /* VARIABLES */
@@ -12,7 +13,7 @@
     
 }
 
-/* RESET */
+/* RESET 
 * {
     margin: 0;
     padding: 0;
@@ -27,7 +28,7 @@ body {
     color: var(--color-texto);
 }
 
-/*- MENU -*/
+/*- MENU -
 
 .menu__side {
     display: flex;
@@ -36,7 +37,7 @@ body {
     width: 90%;
 }
 
-/* --- */
+/* --- 
 
 .Contenido-principal {
     flex: 1;
@@ -46,7 +47,7 @@ body {
     padding: 20px;
 }
 
-/* FORMULARIO */
+/* FORMULARIO 
 
 .formulario-pedido {
     display: flex;
@@ -87,7 +88,7 @@ body {
     background-color: #fff;
 }
 
-/* Opciones de cantidad */
+/* Opciones de cantidad 
 #opcionesCantidad {
     margin-top: 20px;
     background-color: var(--color-crema);
@@ -125,7 +126,7 @@ body {
     display: flex;
 }
 
-/* Botones */
+/* Botones 
 .formulario button {
     background-color: var(--color-marron-oscuro);
     color: var(--color-crema);
@@ -141,7 +142,7 @@ body {
     background-color: var(--color-marron-claro);
 }
 
-/* Productos seleccionados */
+/* Productos seleccionados 
 #listaProductos {
     width: 100%;
 }
@@ -190,7 +191,7 @@ body {
     display: none;
 }
 
-/* Tablets */
+/* Tablets 
 @media (max-width: 768px) {
     body {
         flex-direction: column;
@@ -228,7 +229,7 @@ body {
     }
 }
 
-/* Celulares */
+/* Celulares 
 @media (max-width: 480px) {
 
     .formulario-pedido h2 {
@@ -272,3 +273,4 @@ body {
         height: 16px;
     }
 }
+*/

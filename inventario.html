@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -15,28 +15,20 @@
 
     <main class="Contenido-principal">
 
+        </div>
+
         <div class="tabla-inventario">
 
-            <h2>Inventario de Productos</h2>
-
-            <div class="agregar-producto">
-
-                <button id="toggleFormBtn"><img src="img/agregar.png" alt="ASgregar producto"></button>
-
-                <form id="formProducto" class="formulario-producto oculto">
-
-                    <h2>Agregar Producto</h2>
-
-                    <input type="text" name="producto" placeholder="Nombre del producto" required>
-                    <input type="text" name="marca" placeholder="Marca" required>
-                    <input type="number" name="cantidad" placeholder="Cantidad" required>
-                    <input type="text" name="observaciones" placeholder="Observaciones">
-                    <button type="submit">Guardar</button>
+            <div class="formulario-busqueda">
+                <form id="busquedaForm" class="busqueda-form">
+                    <input type="text" id="buscarNombre" placeholder="Buscar por nombre de producto">
+                    <button type="button" id="btnBuscar">Buscar</button>
+                    <button type="button" id="limpiarBusqueda">Limpiar</button>
                 </form>
             </div>
 
             <div class="tabla-wrapper">
-                <table id="tablainventario">
+                <table id="tablaInventario">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -47,23 +39,22 @@
                             <th>Acciones</th>
                         </tr>
                     </thead>
-
                     <tbody>
-                        <!-- Aquí se agregarán las filas de pedidos -->
+                        <!-- Cuerpo dinámico -->
                     </tbody>
                 </table>
             </div>
 
         </div>
 
-    </main>
+    </div>
 
     <script type="module">
         import { createSidebar } from './js/sidebar.js';
-
         const sidebar = createSidebar();
-        document.getElementById("sidebar-container").appendChild(sidebar);
+        document.body.prepend(sidebar);
     </script>
+
     <script src="js/inventario.js"></script>
 
 </body>

@@ -1,24 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Casita Bakery - Pedidos</title>
     <link rel="stylesheet" href="css/style_pedidos.css">
     <link rel="stylesheet" href="css/sidebar.css">
-    <link rel="icon" href="icon/Logo.png" type="image/x-icon">
+    <!--<link rel="stylesheet" href="css/sidebar.css">-->
+    <!--<link rel="icon" href="icon/Logo.png" type="image/x-icon">-->
 </head>
+
 <body>
 
+    <div class="Contenido-principal">
 
-    <main class="Contenido-principal">
-        <!-- Tabla de Pedidos -->
+        <h2>Ver Pedidos</h2>
+
+        <div class="boton-agregar-wrapper">
+            <button id="abrirModal">Agregar pedido</button>
+        </div>
+
+        <div class="modal">
+            <div class="modal-contenido">
+
+                <span class="close">&times;</span>
+                <div class="formulario-pedido">
+                    <h2>Formulario de Pedido</h2>
+                    <form class="formulario" id="pedidoForm">
+                        <label for="nombre">Nombre del Cliente:</label>
+                        <input type="text" id="nombre" name="nombre" required>
+
+                        <label for="producto">Producto:</label>
+                        <select id="producto" name="producto">
+                            <option value="">-- Selecciona un producto --</option>
+                            <option value="Brownies">Brownies</option>
+                            <option value="Galletas">Galletas</option>
+                            <option value="Cheesecake">Cheesecake</option>
+                            <option value="ChiesNis">Chiesnis</option>
+                            <option value="Cinnamon Rolls">Cinnamon Rolls</option>
+                        </select>
+
+                        <div id="opcionesCantidad" class="opciones-cantidad" style="display: none;">
+                            <p class="opciones-titulo">Tipo de Pedido:</p>
+                            <div id="opcionesCheckboxes" class="opciones-checkboxes">
+                                <!-- Aquí se cargarán dinámicamente los checkbox -->
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn-agregar" onclick="agregarProducto()">Agregar Producto</button>
+
+                        <div id="listaProductos" class="lista-productos">
+                            <h3>Productos Seleccionados:</h3>
+                            <ul id="productosSeleccionados"></ul>
+                        </div>
+
+                        <label for="fecha">Fecha del Pedido:</label>
+                        <input type="date" id="fecha" name="fecha" required>
+
+                        <button type="submit" class="btn-guardar">Guardar Pedido</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Tabla de Pedidos (Siempre visible) -->
         <div class="tabla-pedidos" id="Pedidos">
             <h2>Pedidos Realizados</h2>
             <!-- Formulario de búsqueda -->
             <form id="busquedaForm" class="busqueda-form">
-                <input type="text" id="buscarNombre" placeholder="Buscar por nombre">
-                <input type="date" id="buscarFecha">
+                <input type="text" id="buscarNombre" placeholder="Buscar por nombre del cliente">
                 <button type="submit">Buscar</button>
                 <button type="button" id="limpiarBusqueda">Limpiar</button>
                 
@@ -29,7 +81,7 @@
                     <thead>
                         <tr>
                             <th>Fecha de Registro</th>
-                            <th>Nombre</th>
+                            <th>Cliente</th>
                             <th>Pedido</th>
                             <th>Fecha de Entrega</th>
                             <th>Estado</th>
@@ -42,15 +94,17 @@
                 </table>
             </div>
         </div>
-    </main>
+
+    </div>
+
 
     <script type="module">
-    import { createSidebar } from './js/sidebar.js';
+        import { createSidebar } from './js/sidebar.js';
 
-    const sidebar = createSidebar();
-    document.body.prepend(sidebar);
-</script>
-
+        const sidebar = createSidebar();
+        document.body.prepend(sidebar);
+    </script>
     <script src="js/pedidos.js"></script>
 </body>
+
 </html>

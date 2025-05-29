@@ -1,8 +1,8 @@
-function mostrarMensaje(texto, tipo = 'exito') {
-    const mensaje = document.getElementById('mensaje');
-    mensaje.textContent = texto;
-    mensaje.className = `tarjeta-mensaje ${tipo}`;
-    mensaje.classList.remove('oculto');
+/*function mostrarMensaje(texto, tipo = 'exito') {
+  const mensaje = document.getElementById('mensaje');
+  mensaje.textContent = texto;
+  mensaje.className = `tarjeta-mensaje ${tipo}`;
+  mensaje.classList.remove('oculto');
 
     setTimeout(() => {
         mensaje.classList.add('oculto');
@@ -140,21 +140,21 @@ function enviarPedido(e) {
         accion: 'agregar'
     };
 
-    fetch(URL_SHEET, {
-        method: 'POST',
-        mode: 'no-cors',
-        body: JSON.stringify(data),
-        headers: { 'Content-Type': 'application/json' }
-    })
-        .then(() => {
-            mostrarMensaje('Pedido guardado exitosamente.', 'exito');
-            e.target.reset();
-            productosSeleccionados.length = 0;
-            actualizarLista();
-            document.getElementById('opcionesCantidad').style.display = 'none';
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            mostrarMensaje('Error al guardar el Pedido', 'error');
-        });
-}
+  fetch(URL_SHEET, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: JSON.stringify(data),
+      headers: { 'Content-Type': 'application/json' }
+  })
+  .then(() => {
+      mostrarMensaje('Pedido guardado exitosamente.', 'exito');
+      e.target.reset();
+      productosSeleccionados.length = 0;
+      actualizarLista();
+      document.getElementById('opcionesCantidad').style.display = 'none';
+  })
+  .catch(error => {
+      console.error('Error:', error);
+      mostrarMensaje('Error al guardar el Pedido', 'error');
+  });
+}*/
