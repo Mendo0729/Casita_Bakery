@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,27 +7,27 @@
   <link rel="stylesheet" href="css/style_index.css" />
   <link rel="stylesheet" href="css/sidebar.css" />
   <link rel="icon" href="icon/Logo.png" type="image/x-icon" />
+  <!-- Añadir nuevo CSS para el dashboard -->
 </head>
 
 <body>
-
   <div id="sidebar-container"></div>
 
   <main class="Contenido-principal">
     <div class="dashboard">
       <h2>Dashboard de Pedidos</h2>
-
-      <!-- Resumen de actividad -->
-      <div class="summary">
-        <div class="card">
+      
+      <!-- Estado de carga (se removerá con JavaScript) -->
+      <div class="summary loading">
+        <div class="card skeleton">
           <h3>Total de Pedidos</h3>
           <p></p>
         </div>
-        <div class="card">
+        <div class="card skeleton">
           <h3>Pedidos Pendientes</h3>
           <p></p>
         </div>
-        <div class="card">
+        <div class="card skeleton">
           <h3>Pedidos Entregados</h3>
           <p></p>
         </div>
@@ -36,14 +35,15 @@
 
       <!-- Acciones rápidas -->
       <div class="actions">
-        <button class="btn"><a href="entrada_pedido.html">Crear Nuevo Pedido</a></button>
-        <button class="btn"><a href="pedidos.html">Ver Pedidos Pendientes</a></button>
+        <button class="btn" onclick="location.href='entrada_pedido.html'">Crear Nuevo Pedido</button>
+        <button class="btn" onclick="location.href='pedidos.html'">Ver Pedidos Pendientes</button>
       </div>
 
       <!-- Lista de pedidos recientes -->
       <div class="recent-orders">
         <h3>Pedidos Recientes</h3>
-        <!-- Lista de los últimos pedidos -->
+        <!-- La tabla se generará dinámicamente con JavaScript -->
+        <div class="table-container"></div>
       </div>
     </div>
   </main>
@@ -51,14 +51,11 @@
   <!-- Sidebar dinámico importado como módulo -->
   <script type="module">
     import { createSidebar } from './js/sidebar.js';
-
     const sidebar = createSidebar();
     document.getElementById("sidebar-container").appendChild(sidebar);
   </script>
 
   <!-- Lógica del dashboard -->
   <script src="js/dashboard.js"></script>
-
 </body>
-
 </html>

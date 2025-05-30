@@ -56,7 +56,7 @@ body {
 .boton-agregar-wrapper {
     width: 100%;
     text-align: right;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 /* Botón principal */
@@ -292,9 +292,9 @@ body {
 
 /* ---------------------- TABLA DE PEDIDOS ---------------------- */
 .tabla-pedidos {
-    margin-top: 30px;
+    margin-top: 10px;
     background-color: white;
-    padding: 25px;
+    padding: 15px;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
@@ -360,10 +360,6 @@ body {
     color: white;
     position: sticky;
     top: 0;
-}
-
-#tablaPedidos tr:nth-child(even) {
-    background-color: var(--color-crema);
 }
 
 #tablaPedidos tr:hover {
