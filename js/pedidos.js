@@ -44,6 +44,18 @@ function mostrarCargaPedidos() {
     `;
 }
 
+function formatearFecha(fechaString) {
+    const fecha = new Date(fechaString);
+    return fecha.toLocaleString('es-ES', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+}
+// Ejemplo: "31/05/2023, 14:30"
+
 // ==================== INICIALIZACIÓN ====================
 document.addEventListener('DOMContentLoaded', () => {
     const abrirModalBtn = document.getElementById('abrirModal');
@@ -186,10 +198,16 @@ function agregarProducto() {
 function enviarPedido(e) {
     e.preventDefault();
     const nombre = document.getElementById('nombre').value.trim();
-    const fecha = document.getElementById('fecha').value;
+    const fechaInput = document.getElementById('fecha').value;
 
-    if (!nombre || !fecha || productosSeleccionados.length === 0) {
+    if (!nombre || !fechaInput || productosSeleccionados.length === 0) {
         mostrarMensaje('Completa todos los campos y agrega productos.', 'error');
+        return;
+    }
+
+    const fechaObj = new Date(fechaInput);
+    if(isNaN(fechaObj.getTime())){
+        mostrarMensaje('La fecha ingresada no es valida', 'error');
         return;
     }
 
@@ -199,7 +217,7 @@ function enviarPedido(e) {
         accion: 'agregar',
         nombre,
         pedido: pedidoTexto,
-        fecha,
+        fecha: fechaInput,
         estado: 'Pendiente',
         timestamp: new Date().toISOString()
     };
@@ -257,10 +275,10 @@ function mostrarPedidos(pedidos) {
     pedidos.forEach(p => {
         const fila = document.createElement('tr');
         fila.innerHTML = `
-            <td data-label="Fecha-Entrada">${p.timestamp}</td>
+            <td data-label="Fecha-Entrada">${formatearFecha(p.timestamp)}</td>
             <td data-label="Cliente" contenteditable="false">${p.nombre}</td>
             <td data-label="Pedido" contenteditable="false">${p.pedido}</td>
-            <td data-label="Fecha-Entrega" contenteditable="false">${p.fecha}</td>
+            <td data-label="Fecha-Entrega" contenteditable="false">${formatearFecha(p.fecha)}</td>
             <td data-label="Estado">
                 <select class="estado-select" disabled>
                     <option value="Pendiente" ${p.estado === 'Pendiente' ? 'selected' : ''}>Pendiente</option>
@@ -271,7 +289,7 @@ function mostrarPedidos(pedidos) {
                     <button class="btn-editar" type="button"><img src="img/editar.png" alt="Editar"></button>
                     <button class="btn-guardar" type="button" style="display: none;"><img src="img/guardar.png" alt="Guardar"></button>
                     <button class="btn-eliminar" type="button"><img src="img/basura.png" alt="Eliminar"></button>
-                    <button class="btn-cancelar" style="display:none;">Cancelar</button>
+                    <button class="btn-cancelar" style="display:none;"><img src="img/cancelar.png" alt="Cancelar"></button>
                 </td>
         `;
 
@@ -322,7 +340,7 @@ function mostrarPedidos(pedidos) {
             }
 
             const data = {
-                accion: 'editar',
+                accion: 'actualizar',
                 timestamp: p.timestamp,
                 nombre: nuevoNombre,
                 pedido: nuevoPedido,
